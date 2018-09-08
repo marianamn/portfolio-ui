@@ -238,7 +238,7 @@ eval("\r\nvar __extends = (this && this.__extends) || (function () {\r\n    var 
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-eval("\r\nObject.defineProperty(exports, \"__esModule\", { value: true });\r\nvar React = __webpack_require__(/*! react */ \"./node_modules/react/index.js\");\r\nvar ReactDom = __webpack_require__(/*! react-dom */ \"./node_modules/react-dom/index.js\");\r\nvar App_1 = __webpack_require__(/*! ./components/App */ \"./public/src/components/App.tsx\");\r\nvar ROOT = document.querySelector('.container');\r\nReactDom.render(React.createElement(App_1.default, { name: 'React' }), ROOT);\r\n\n\n//# sourceURL=webpack:///./public/src/index.tsx?");
+eval("\r\nObject.defineProperty(exports, \"__esModule\", { value: true });\r\nvar React = __webpack_require__(/*! react */ \"./node_modules/react/index.js\");\r\nvar ReactDom = __webpack_require__(/*! react-dom */ \"./node_modules/react-dom/index.js\");\r\nvar App_1 = __webpack_require__(/*! ./components/App */ \"./public/src/components/App.tsx\");\r\nvar root = document.querySelector('#container');\r\nReactDom.render(React.createElement(App_1.default, { name: 'React' }), root);\r\n\n\n//# sourceURL=webpack:///./public/src/index.tsx?");
 
 /***/ })
 

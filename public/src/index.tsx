@@ -2,6 +2,6 @@ import * as React from 'react';
 import * as ReactDom from 'react-dom';
 import App from './components/App';
 
-const ROOT = document.querySelector('.container');
+const root = document.querySelector('#container');
 
-ReactDom.render(<App name='React'/>, ROOT);
+ReactDom.render(<App name='React'/>, root);
