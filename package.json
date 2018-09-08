@@ -2,10 +2,11 @@
   "name": "portfolio-ui",
   "version": "1.0.0",
   "description": "personal portfolio-ui React project",
-  "main": "./public/src/index.tsx",
+  "main": "dist/bundle.js",
   "scripts": {
     "start": "webpack-dev-server",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "webpack --config webpack.config.js"
   },
   "repository": {
     "type": "git",
