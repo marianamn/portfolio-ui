@@ -1,2 +1,2 @@
-<?php include_once("./dist/bundle.js"); ?>
 <?php include_once("./dist/index.html"); ?>
+<script language="javascript" src="./dist/bundle.js"> 
