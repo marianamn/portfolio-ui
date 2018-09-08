@@ -1,4 +1,8 @@
 # dependencies
-*/node_modules
-*/.git
-/.vscode
+node_modules
+.git
+.vscode
+
+public/src/**/*.js
+public/src/**/*.map
+public/dist/*
