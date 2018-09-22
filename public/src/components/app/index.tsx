@@ -1,5 +1,6 @@
 import * as React from "react";
 import styled, { injectGlobal } from "styled-components";
+import HeaderSection from "../header-section/index";
 
 // tslint:disable-next-line:no-unused-expression
 injectGlobal`
@@ -33,28 +34,16 @@ injectGlobal`
     margin: 0;
     font-family: Roboto-Regular, sans-serif;
   }
+
+  p {
+    margin: 0;
+  }
 `;
 
-export const Title = styled("h2")`
-  color: #003764;
-`;
-
-export const Logo = styled("img")`
-  width: 280px;
-  height: 180px;
-`;
-
-interface Props {
-  readonly name: string;
-}
+interface Props {}
 
 export default class App extends React.Component<Props> {
   render(): JSX.Element {
-    return (
-      <div>
-        <Logo src="assets/images/logo.jpg" />
-        <Title>Hello {this.props.name}</Title>
-      </div>
-    );
+    return <HeaderSection />;
   }
 }

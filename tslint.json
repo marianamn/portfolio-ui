@@ -64,7 +64,7 @@
     "strict-type-predicates": true,
     "switch-default": true,
     "triple-equals": [true, "allow-null-check"],
-    "use-default-type-parameter": true,
+    "use-default-type-parameter": false,
     "use-isnan": true,
     "eofline": true,
     "indent": [true, "spaces", 2],

@@ -1,7 +1,7 @@
 import * as React from "react";
 import * as ReactDom from "react-dom";
-import App from "./components/App";
+import App from "./components/app/index";
 
 const root = document.querySelector("#container");
 
-ReactDom.render(<App name="React" />, root);
+ReactDom.render(<App />, root);
