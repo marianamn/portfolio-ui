@@ -4,8 +4,8 @@ const CopyWebpackPlugin = require('copy-webpack-plugin')
 
 module.exports = {
     entry: './public/src/index.tsx',
-    mode: env.production ? "production" : "development",
-    devtool: env.production ? "source-maps" : "eval",
+    mode: process.env.production ? "production" : "development",
+    devtool: process.env.production ? "source-maps" : "eval",
     target: "web",
     output: {
         path: path.resolve(__dirname, 'dist'),
