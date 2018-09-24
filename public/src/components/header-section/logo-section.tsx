@@ -7,32 +7,32 @@ import { name, socialMediaLinks } from "../../constants";
 
 export const LogoContainer = styled("div")`
   display: flex;
-  width: 70%;
+  width: calc(70% - 75px);
   background: #e9eae2;
-  padding: 60px;
+  padding: 60px 40px;
 `;
 
 export const Logo = styled("img")`
-  max-width: 80%;
+  max-width: 70%;
   height: auto;
 `;
 
 export const PersonalInfoContainer = styled("div")`
-  flex: 1;
+  width: 30%;
 `;
 
 export const PersonalImageContainer = styled("div")`
-  flex: 1;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  max-height: 100%;
+  width: 70%;
+  background: url("assets/images/antiques-bicycle-bike-247929.jpg") no-repeat;
+  background-position: center;
+  background-size: contain;
 `;
 
 export const Name = styled("p")`
   font-family: RobotoCondensed-Regular, sans-serif;
-  font-size: 24px;
+  font-size: 22px;
   color: #393d3c;
+  text-transform: uppercase;
 `;
 
 export const SocialIconsContainer = styled("p")`
@@ -48,7 +48,7 @@ export const Link = styled("a")`
     cursor: pointer;
     color: #70bab1;
   }
-`
+`;
 
 export const Icon = styled("span")`
   margin-right: 10px;
@@ -68,15 +68,7 @@ export const Icon = styled("span")`
   }
 `;
 
-export const Picture = styled("img")`
-  max-width: 100%;
-  height: auto;
-  max-height: 100%;
-  border: 6px solid white;
-`;
-
-interface Props {
-}
+interface Props {}
 
 export default class LogoSection extends React.Component<Props> {
   render(): JSX.Element {
@@ -104,9 +96,7 @@ export default class LogoSection extends React.Component<Props> {
           </SocialIconsContainer>
         </PersonalInfoContainer>
 
-        <PersonalImageContainer>
-          <Picture src="assets/images/art-asian-bulb-236397.jpg" />
-        </PersonalImageContainer>
+        <PersonalImageContainer/>
       </LogoContainer>
     );
   }

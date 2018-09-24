@@ -1,6 +1,10 @@
 import * as React from "react";
 import styled, { injectGlobal } from "styled-components";
 import HeaderSection from "../header-section/index";
+import PortfolioContainer from "../portfolio-section/index";
+import BiographySection from "../biography/index";
+import InterestsSection from "../interests/index";
+import Footer from "../footer/";
 
 // tslint:disable-next-line:no-unused-expression
 injectGlobal`
@@ -32,11 +36,18 @@ injectGlobal`
   body {
     padding: 0;
     margin: 0;
-    font-family: Roboto-Regular, sans-serif;
+    font-family: RobotoCondensed-Regular, sans-serif;
+    font-size: 16px;
   }
 
   p {
     margin: 0;
+  }
+
+  @media only screen and (max-width: 600px) {
+    body {
+      font-size: 14px;
+    }
   }
 `;
 
@@ -44,6 +55,14 @@ interface Props {}
 
 export default class App extends React.Component<Props> {
   render(): JSX.Element {
-    return <HeaderSection />;
+    return (
+      <div>
+        <HeaderSection />
+        <PortfolioContainer />
+        <BiographySection />
+        <InterestsSection />
+        <Footer />
+      </div>
+    )
   }
 }

@@ -4,12 +4,11 @@ import LogoSection from "./logo-section";
 import MenuSection from "./menu-section";
 
 export const NavbarContainer = styled("div")`
-  height: 500px;
+  height: 450px;
   display: flex;
 `;
 
-interface Props {
-}
+interface Props {}
 
 export default class HeaderSection extends React.Component<Props> {
   render(): JSX.Element {
