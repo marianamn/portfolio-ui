@@ -63,6 +63,6 @@ export default class App extends React.Component<Props> {
         <InterestsSection />
         <Footer />
       </div>
-    )
+    );
   }
 }

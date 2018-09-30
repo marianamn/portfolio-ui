@@ -1,8 +1,11 @@
 import * as React from "react";
 import styled from "styled-components";
+import { ArrowRight } from "styled-icons/feather/ArrowRight";
+import { projects } from "../../constants";
+import { ProjectData } from "../../interfaces";
 import { GradientContainer } from "../common/gradient-container";
 import { SectionTitle } from "../common/section-title";
-import { ArrowRight } from "styled-icons/feather/ArrowRight";
+import Project  from "./project";
 
 export const PortfolioContainer = styled("div")`
   height: 800px;
@@ -47,34 +50,9 @@ export const ListItem = styled("li")`
   }
 `;
 
-export const Project1 = styled("div")`
-  width: 40%;
-`;
-
-export const Project2 = styled("div")`
-  width: 30%;
-  height: 300px;
-  background: #dfe0d9;
-`;
-
-export const Project3 = styled("div")`
-  width: 20%;
-  height: 400px;
-  background: #697b86;
-`;
-
-export const Project4 = styled("div")`
-  width: 50%;
-  height: 400px;
-  background: #eaeaea;
-`;
-
-export const Project5 = styled("div")`
-  width: 30%;
-  height: 500px;
-  margin-top: -100px;
-  background: #f7f7f3;
-`;
+export interface ProjectProps {
+  readonly index: number;
+}
 
 interface Props {}
 
@@ -83,9 +61,9 @@ interface StateProps {
 }
 
 export default class PortfolioSection extends React.Component<Props, StateProps> {
-  constructor(props: Props){
+  constructor(props: Props) {
     super(props);
-    this.state={ selectedItem: 0 };
+    this.state = { selectedItem: 0 };
   }
 
   render(): JSX.Element {
@@ -97,28 +75,26 @@ export default class PortfolioSection extends React.Component<Props, StateProps>
           padding="60px 0 0 0"
           backgroundColor="#ebb240"
         >
-          <List>
-            {this.generateProjectsMenu()}
-          </List>
-          <SectionTitle
-            bottom="60px"
-            left="35%"
-          >
+          <List>{this.generateProjectsMenu()}</List>
+          <SectionTitle bottom="60px" left="35%">
             Projects
           </SectionTitle>
         </GradientContainer>
 
-        <Project1 />
-        <Project2 />
-        <Project3 />
-        <Project4 />
-        <Project5 />
+        {this.generateProjectsContent()}
       </PortfolioContainer>
     );
   }
 
   private readonly generateProjectsMenu = () => {
-    const menu: ReadonlyArray<string> = ["All", "Project 1", "Project 2", "Project 3", "Project 4", "Project 5"];
+    const menu: ReadonlyArray<string> = [
+      "All",
+      "Project 1",
+      "Project 2",
+      "Project 3",
+      "Project 4",
+      "Project 5",
+    ];
 
     return menu.map((item: string, index: number) => {
       return (
@@ -128,16 +104,27 @@ export default class PortfolioSection extends React.Component<Props, StateProps>
           // tslint:disable-next-line:jsx-no-lambda
           onClick={() => this.selectProject(index)}
         >
-          {index === this.state.selectedItem &&
-            <ArrowRight className="icon"/>
-          }
+          {index === this.state.selectedItem && <ArrowRight className="icon" />}
           {item}
         </ListItem>
-      )
-    })
-  }
+      );
+    });
+  };
 
   private readonly selectProject = (index: number): any => {
     this.setState({ selectedItem: index });
+  };
+
+  private readonly generateProjectsContent = () => {
+    console.log(projects)
+    return projects.map((project: ProjectData, index: number) => {
+      return (
+        <Project
+          key={project.id}
+          containerIndex={index + 1}
+          project={project}
+        />
+      )
+    })
   }
 }

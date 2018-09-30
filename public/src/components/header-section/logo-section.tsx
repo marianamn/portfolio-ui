@@ -96,7 +96,7 @@ export default class LogoSection extends React.Component<Props> {
           </SocialIconsContainer>
         </PersonalInfoContainer>
 
-        <PersonalImageContainer/>
+        <PersonalImageContainer />
       </LogoContainer>
     );
   }

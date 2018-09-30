@@ -24,18 +24,14 @@ export default class InterestsSection extends React.Component<Props> {
           width="30%"
           height="calc(100% - 60px)"
           padding="60px 0 0 0"
-          backgroundColor="#d4edbf"
+          backgroundColor="#cef3af"
         >
-          <SectionTitle
-            bottom="60px"
-            left="35%"
-          >
+          <SectionTitle bottom="60px" left="35%">
             Interests
           </SectionTitle>
         </GradientContainer>
 
-        <Section1/>
-
+        <Section1 />
       </BiographyContainer>
     );
   }

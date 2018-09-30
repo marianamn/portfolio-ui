@@ -53,7 +53,6 @@ export const ContactsContainer = styled("div")`
   }
 `;
 
-
 interface Props {}
 
 export default class HeaderSection extends React.Component<Props> {
@@ -70,17 +69,14 @@ export default class HeaderSection extends React.Component<Props> {
         </MenuBarsContainer>
 
         <ContactsContainer onClick={this.sendEmail}>
-          <Mail className="icon"/>
+          <Mail className="icon" />
           <span>{email}</span>
         </ContactsContainer>
-
       </GradientContainer>
     );
   }
 
   private readonly sendEmail = (): any => {
     window.location.href = `mailto:${email}`;
-  }
+  };
 }
-
-

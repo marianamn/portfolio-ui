@@ -32,17 +32,13 @@ export default class BiographySection extends React.Component<Props> {
           padding="60px 0 0 0"
           backgroundColor="#ff9b6d"
         >
-          <SectionTitle
-            bottom="60px"
-            left="35%"
-          >
+          <SectionTitle bottom="60px" left="35%">
             Biography
           </SectionTitle>
         </GradientContainer>
 
-        <Section1/>
-        <Section2/>
-
+        <Section1 />
+        <Section2 />
       </BiographyContainer>
     );
   }
