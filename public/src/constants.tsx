@@ -1,3 +1,6 @@
+import { ProjectData } from "./interfaces";
+
+export const mobileResolution = 480;
 export const name = "Mariana Naidenova";
 export const email = "mariana.naidenova.naidenova@gmail.com";
 export const socialMediaLinks = {
@@ -5,7 +8,8 @@ export const socialMediaLinks = {
   twitter: "https://twitter.com/mariana_mnn",
   linkedIn: "https://www.linkedin.com/in/mariana-naidenova-89486a43/",
 };
-export const projects: ReadonlyArray<any> = [
+export const menuItems: ReadonlyArray<string> = ["Projects", "Biography", "Interests"];
+export const projects: ReadonlyArray<ProjectData> = [
   {
     id: "1",
     name: "Project 1",
@@ -26,4 +30,4 @@ export const projects: ReadonlyArray<any> = [
     id: "5",
     name: "Project 5",
   },
-]
+];

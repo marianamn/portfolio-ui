@@ -1,7 +1,8 @@
 import * as React from "react";
 import styled, { injectGlobal } from "styled-components";
-import HeaderSection from "../header-section/index";
-import PortfolioContainer from "../portfolio-section/index";
+import { mobileResolution } from "../../constants";
+import HeaderSection from "../header/index";
+import PortfolioSection from "../portfolio/index";
 import BiographySection from "../biography/index";
 import InterestsSection from "../interests/index";
 import Footer from "../footer/";
@@ -53,15 +54,40 @@ injectGlobal`
 
 interface Props {}
 
-export default class App extends React.Component<Props> {
+interface State {
+  readonly containerWidth: number;
+}
+
+export default class App extends React.Component<Props, State> {
+  constructor(props: Props, state: State) {
+    super(props, state);
+    this.state = { containerWidth: 0 };
+    this.updateWindowDimensions = this.updateWindowDimensions.bind(this);
+  }
+
+  componentDidMount(): void {
+    this.updateWindowDimensions();
+    window.addEventListener("resize", this.updateWindowDimensions);
+  }
+
+  componentWillUnmount(): void {
+    window.removeEventListener("resize", this.updateWindowDimensions);
+  }
+
+  updateWindowDimensions(): void {
+    this.setState({ containerWidth: window.innerWidth });
+  }
+
   render(): JSX.Element {
+    const isMobile = this.state.containerWidth <= mobileResolution;
+
     return (
       <div>
-        <HeaderSection />
-        <PortfolioContainer />
+        <HeaderSection isMobile={isMobile} />
+        {/* <PortfolioSection />
         <BiographySection />
         <InterestsSection />
-        <Footer />
+        <Footer /> */}
       </div>
     );
   }

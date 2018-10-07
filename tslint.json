@@ -51,7 +51,7 @@
     "no-sparse-arrays": true,
     "no-string-literal": false,
     "no-string-throw": true,
-    "no-unbound-method": [true, "ignore-static"],
+    "no-unbound-method": [false, "ignore-static"],
     "no-unsafe-finally": true,
     "no-unused-expression": [true, "allow-fast-null-checks"],
     "no-use-before-declare": true,
