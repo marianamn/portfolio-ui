@@ -8,7 +8,7 @@ import SocialIcons from "../common/social-icons";
 
 export const MenuContainer = styled("div")`
   background: #7acec3;
-  padding: 20px;
+  padding: 5px 20px;
 `;
 
 export const MenuBarsContainer = styled("div")`
@@ -42,9 +42,13 @@ export const MenuBtn = styled<MenuBtnProps, "div">("div")`
   }
 `;
 
+export const LogoContainer = styled("div")`
+  text-align: center;
+`;
+
 export const Logo = styled("img")`
   width: 50px;
-  height: 1.75em;
+  height: 1.5em;
   margin-right: 10px;
 `;
 
@@ -59,39 +63,36 @@ export const Icons = styled("div")`
   margin-left: 10px;
 `;
 
-interface Props {}
-interface State {
-  readonly toggleMenu: boolean;
+interface Props {
+  readonly isToggled: boolean;
+  readonly toggleMenu: () => void;
+  readonly scrollToElement: (id: string) => void;
 }
 
-export default class MobileMenu extends React.Component<Props, State> {
-  constructor(props: Props, state: State) {
-    super(props, state);
-    this.state = { toggleMenu: false };
-  }
-
+export default class MobileMenu extends React.Component<Props> {
   render(): JSX.Element {
     return (
       <MenuContainer>
         <MenuBarsContainer>
-          <MenuBtn onClick={this.toggleMenu} isOpened={this.state.toggleMenu}>
-            {!this.state.toggleMenu ? <Menu className="icon" /> : <Close className="icon" />}
+          {/* tslint:disable-next-line:jsx-no-lambda */}
+          <MenuBtn onClick={() => this.props.toggleMenu()} isOpened={this.props.isToggled}>
+            {!this.props.isToggled ? <Menu className="icon" /> : <Close className="icon" />}
           </MenuBtn>
-          {/* <Logo src="assets/images/logo-white.png" /> */}
-          <Name>{name}</Name>
+          <LogoContainer>
+            <Logo src="assets/images/logo-white.png" />
+            <Name>{name}</Name>
+          </LogoContainer>
         </MenuBarsContainer>
 
-        {this.state.toggleMenu && <MenuListContainer />}
-        {this.state.toggleMenu && (
+        {this.props.isToggled && (
+          <MenuListContainer isMobile scrollToElement={this.props.scrollToElement} toggleMenu={this.props.toggleMenu} />
+        )}
+        {this.props.isToggled && (
           <Icons>
-            <SocialIcons iconColor="#ffffff" iconHoverColor="#70bab1" showEmail={true}/>
+            <SocialIcons iconColor="#ffffff" iconHoverColor="#70bab1" showEmail />
           </Icons>
         )}
       </MenuContainer>
     );
   }
-
-  private readonly toggleMenu = (): void => {
-    this.setState({ toggleMenu: !this.state.toggleMenu });
-  };
 }

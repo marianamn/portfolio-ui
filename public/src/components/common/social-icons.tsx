@@ -60,22 +60,39 @@ export default class SocialIcons extends React.Component<Props> {
     return (
       <SocialIconsContainer>
         <Icon>
-          <Link href={socialMediaLinks.facebook} target="blank" iconColor={this.props.iconColor} iconHoverColor={this.props.iconHoverColor}>
+          <Link
+            href={socialMediaLinks.facebook}
+            target="blank"
+            iconColor={this.props.iconColor}
+            iconHoverColor={this.props.iconHoverColor}
+          >
             <FacebookF className="icon" />
           </Link>
         </Icon>
         <Icon>
-          <Link href={socialMediaLinks.twitter} target="blank" iconColor={this.props.iconColor} iconHoverColor={this.props.iconHoverColor}>
+          <Link
+            href={socialMediaLinks.twitter}
+            target="blank"
+            iconColor={this.props.iconColor}
+            iconHoverColor={this.props.iconHoverColor}
+          >
             <Twitter className="icon" />
           </Link>
         </Icon>
         <Icon>
-          <Link href={socialMediaLinks.linkedIn} target="blank" iconColor={this.props.iconColor} iconHoverColor={this.props.iconHoverColor}>
+          <Link
+            href={socialMediaLinks.linkedIn}
+            target="blank"
+            iconColor={this.props.iconColor}
+            iconHoverColor={this.props.iconHoverColor}
+          >
             <LinkedinIn className="icon" />
           </Link>
         </Icon>
         <Icon iconColor={this.props.iconColor} iconHoverColor={this.props.iconHoverColor}>
-          <Mail className="icon email"><span>{email}</span></Mail>
+          <Mail className="icon email">
+            <span>{email}</span>
+          </Mail>
         </Icon>
       </SocialIconsContainer>
     );

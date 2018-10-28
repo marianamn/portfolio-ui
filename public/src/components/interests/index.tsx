@@ -24,7 +24,7 @@ export default class InterestsSection extends React.Component<Props> {
           width="30%"
           height="calc(100% - 60px)"
           padding="60px 0 0 0"
-          backgroundColor="#cef3af"
+          backgroundColor="#b7ef88"
         >
           <SectionTitle bottom="60px" left="35%">
             Interests

@@ -56,6 +56,7 @@ export const Name = styled("span")`
   text-transform: uppercase;
 `;
 
+
 interface Props {}
 
 export default class Footer extends React.Component<Props> {
