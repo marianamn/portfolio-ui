@@ -42,7 +42,10 @@ export default class MenuListContainer extends React.Component<Props> {
         <MenuItem
           key={item}
           // tslint:disable-next-line:jsx-no-lambda
-          onClick={() => { this.props.scrollToElement(`${item.toLowerCase()}`); this.props.toggleMenu() }}
+          onClick={() => {
+            this.props.scrollToElement(`${item.toLowerCase()}`);
+            this.props.toggleMenu();
+          }}
         >
           {item}
         </MenuItem>

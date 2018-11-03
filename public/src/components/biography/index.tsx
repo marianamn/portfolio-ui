@@ -20,7 +20,9 @@ export const Section2 = styled("div")`
   background: #e9eae2;
 `;
 
-interface Props {}
+interface Props {
+  readonly isMobile: boolean;
+}
 
 export default class BiographySection extends React.Component<Props> {
   render(): JSX.Element {
@@ -31,8 +33,9 @@ export default class BiographySection extends React.Component<Props> {
           height="calc(400px - 60px)"
           padding="60px 0 0 0"
           backgroundColor="#ff9b6d"
+          isMobile={this.props.isMobile}
         >
-          <SectionTitle bottom="60px" left="35%">
+          <SectionTitle bottom="60px" left="35%" isMobile={this.props.isMobile}>
             Biography
           </SectionTitle>
         </GradientContainer>

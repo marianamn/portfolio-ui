@@ -47,14 +47,11 @@ injectGlobal`
   }
 `;
 
-interface Props { }
-interface State { }
+interface Props {}
+interface State {}
 
 export default class App extends React.Component<Props, State> {
-
   render(): JSX.Element {
-    return (
-      <Layout />
-    );
+    return <Layout />;
   }
 }

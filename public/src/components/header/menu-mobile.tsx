@@ -85,7 +85,11 @@ export default class MobileMenu extends React.Component<Props> {
         </MenuBarsContainer>
 
         {this.props.isToggled && (
-          <MenuListContainer isMobile scrollToElement={this.props.scrollToElement} toggleMenu={this.props.toggleMenu} />
+          <MenuListContainer
+            isMobile
+            scrollToElement={this.props.scrollToElement}
+            toggleMenu={this.props.toggleMenu}
+          />
         )}
         {this.props.isToggled && (
           <Icons>
