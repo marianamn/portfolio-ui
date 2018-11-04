@@ -12,35 +12,35 @@ export const socialMediaLinks = {
 export const projectContainersCss: ReadonlyArray<ProjectContainerStyles> = [
   {
     width: "calc(40% - 20px)",
-    height: "calc(400px - 10px)",
+    height: "390px", //calc(400px - 10px)
     color: "#333333",
     background: "#ffffff",
     marginTop: "0",
   },
   {
     width: "calc(30% - 20px)",
-    height: "calc(300px - 10px)",
+    height: "290px", //calc(300px - 10px)
     color: "black",
     background: "#eaeaea",
     marginTop: "0",
   },
   {
-    width: "calc(40% - 20px)",
-    height: "calc(400px - 10px)",
+    width: "calc(35% - 20px)",
+    height: "390px", //calc(400px - 10px)
     color: "#ffffff",
     background: "#697b86",
     marginTop: "0",
   },
   {
-    width: "calc(30% - 20px)",
-    height: "calc(400px - 10px)",
+    width: "calc(35% - 20px)",
+    height: "390px", //calc(400px - 10px)
     color: "black",
     background: "#dfe0d9",
     marginTop: "0",
   },
   {
     width: "calc(30% - 20px)",
-    height: "calc(500px - 10px)",
+    height: "490px", //calc(500px - 10px)
     color: "black",
     background: "#f7f7f3",
     marginTop: "-100px",
@@ -58,10 +58,10 @@ export const projects: ReadonlyArray<ProjectData> = [
     tags: ["JavaScript", "sass", "configurator", "gulp"],
     images: [
       "assets/images/projects/toro/toro.png",
-      "assets/images/projects/toro/toro-1.png",
-      "assets/images/projects/toro/toro-2.png",
-      "assets/images/projects/toro/toro-3.png",
-      "assets/images/projects/toro/toro-4.png",
+      "assets/images/projects/toro/toro-1.PNG",
+      "assets/images/projects/toro/toro-2.PNG",
+      "assets/images/projects/toro/toro-3.PNG",
+      "assets/images/projects/toro/toro-4.PNG",
     ],
     period: "2017",
     url:
@@ -70,10 +70,10 @@ export const projects: ReadonlyArray<ProjectData> = [
   {
     id: "2",
     name: "Personal Portfolio",
-    technologies: "",
+    technologies: "React, TypeScript, Webpack, Styled-components, Node.js, Express, MongoDB",
     description:
       "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
-    tags: [""],
+    tags: ["React", "TypeScript", "Webpack", "Styled-components", "Node.js", "Express", "MongoDB"],
     images: ["assets/images/projects/portfolio/portfolio.png"],
     period: "2018",
   },
@@ -89,8 +89,8 @@ export const projects: ReadonlyArray<ProjectData> = [
       "assets/images/projects/instant-market/im-1.png",
       "assets/images/projects/instant-market/im-2.png",
       "assets/images/projects/instant-market/im-3.png",
-      "assets/images/projects/instant-market/im-4.png",
-      "assets/images/projects/instant-market/im-5.png",
+      "assets/images/projects/instant-market/im-4.PNG",
+      "assets/images/projects/instant-market/im-5.PNG",
       "assets/images/projects/instant-market/im-6.png",
     ],
     period: "2018",
@@ -101,7 +101,7 @@ export const projects: ReadonlyArray<ProjectData> = [
     technologies: "",
     description:
       "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
-    tags: [""],
+    tags: ["React", "TypeScript", "Redux", "Rxjs", "Monorepo", "Lerna", "npm package create"],
     images: [
       "assets/images/projects/widgets/widgets.PNG",
       "assets/images/projects/widgets/widgets-1.PNG",
@@ -119,8 +119,8 @@ export const projects: ReadonlyArray<ProjectData> = [
     images: [
       "assets/images/projects/ec/ec.PNG",
       "assets/images/projects/ec/ec-1.PNG",
-      "assets/images/projects/ec/ec-2.PNG",
-      "assets/images/projects/ec/ec-3.PNG",
+      "assets/images/projects/ec/ec-2.png",
+      "assets/images/projects/ec/ec-3.png",
     ],
     period: "2018",
   },

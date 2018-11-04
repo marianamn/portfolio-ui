@@ -101,6 +101,8 @@ export default class Layout extends React.Component<Props, State> {
           />
         ) : (
           <ProjectDetails
+            isMobile={isMobile}
+            isTablet={isTablet}
             toggleShowProjectDetails={this.toggleShowProjectDetails}
             projectDetails={this.state.projectDetails}
           />

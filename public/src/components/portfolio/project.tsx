@@ -8,7 +8,7 @@ export interface ProjectProps {
   readonly isMobile: boolean;
   readonly isTablet: boolean;
   readonly style: ProjectContainerStyles;
-  readonly descriptionHeight: number;
+  readonly imagePath: string;
 }
 
 export const ProjectContainer = styled<ProjectProps, "div">("div")`
@@ -22,16 +22,16 @@ export const ProjectContainer = styled<ProjectProps, "div">("div")`
     isMobile || isTablet ? "0 !important" : `${style.marginTop}`};
   padding: 5px 10px;
   font-family: RobotoCondensed-Light;
+  display: flex;
+  flex-direction: column;
 
-  img {
-    object-fit: contain;
+  .image {
+    background: ${({ imagePath }) => `url(${imagePath}) no-repeat`};
+    background-position: center;
+    background-size: contain;
     width: 100%;
-    height: ${({ descriptionHeight, style, isMobile, isTablet }) =>
-      isMobile
-        ? `calc(400px - ${descriptionHeight}px - 40px) !important`
-        : isTablet
-          ? `calc(400px - ${descriptionHeight}px - 60px) !important`
-          : `calc(${style.height} - ${descriptionHeight}px - 40px)`};
+    height: 100%;
+    margin-bottom: 10px;
   }
 `;
 
@@ -46,7 +46,7 @@ export const ProjectName = styled("h3")`
 
 export const Row = styled("p")`
   font-size: 0.875em;
-  height: 1.8em;
+  margin-bottom: 0.5em;
 `;
 
 export const Label = styled("span")`
@@ -58,7 +58,7 @@ export const VewProject = styled("p")`
   align-items: center;
   justify-content: flex-end;
   text-transform: uppercase;
-  height: 20px;
+  margin-bottom: 10px;
 
   .icon {
     width: 25px;
@@ -80,26 +80,9 @@ interface Props {
   readonly getProjectDetails: (id: string) => void;
 }
 
-interface StateProps {
-  readonly descriptionHeight: number;
-}
+interface StateProps {}
 
 export default class Project extends React.Component<Props, StateProps> {
-  constructor(props: Props, state: StateProps) {
-    super(props);
-    this.state = {
-      descriptionHeight: 200,
-    };
-  }
-
-  private descriptionRef: any;
-
-  componentDidMount(): void {
-    if (this.descriptionRef) {
-      this.setState({ descriptionHeight: this.descriptionRef.clientHeight });
-    }
-  }
-
   render(): JSX.Element {
     const index = this.props.containerIndex - 1;
     const style = projectContainersCss[index];
@@ -109,10 +92,9 @@ export default class Project extends React.Component<Props, StateProps> {
         isMobile={this.props.isMobile}
         isTablet={this.props.isTablet}
         style={style}
-        descriptionHeight={this.state.descriptionHeight}
+        imagePath={this.props.project.images[0]}
       >
-        {/* tslint:disable-next-line:jsx-no-lambda */}
-        <DescriptionContainer innerRef={comp => (this.descriptionRef = comp)}>
+        <DescriptionContainer>
           <ProjectName>{this.props.project.name}</ProjectName>
           <Row>
             <Label>Tech Stack: </Label>
@@ -123,7 +105,7 @@ export default class Project extends React.Component<Props, StateProps> {
             {this.props.project.period}
           </Row>
         </DescriptionContainer>
-        <img src={this.props.project.images[0]} />
+        <div className="image" />
 
         {/* tslint:disable-next-line:jsx-no-lambda */}
         <VewProject onClick={() => this.handleClick(this.props.project.id)}>
