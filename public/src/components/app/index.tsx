@@ -34,6 +34,7 @@ injectGlobal`
     margin: 0;
     font-family: RobotoCondensed-Regular, sans-serif;
     font-size: 16px;
+    overflow-x: hidden;
   }
 
   p {
