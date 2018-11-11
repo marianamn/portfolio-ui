@@ -42,7 +42,7 @@ export const InterestsContainer = styled<BiographyProps, "div">("div")`
   }
 
   .image-puzzles {
-    margin-top: ${({ isMobile, isTablet }) => isMobile ? "10px" : (isTablet ? "40px" : "100px")};
+    margin-top: ${({ isMobile, isTablet }) => isMobile ? "10px" : (isTablet ? "40px" : "75px")};
   }
 
   .image-origami {
