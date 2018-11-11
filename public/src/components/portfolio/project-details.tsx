@@ -48,7 +48,7 @@ export const CloseBtnContainer = styled<ContentProps, "div">("div")`
 `;
 
 export const ProjectInfo = styled<ContentProps, "div">("div")`
-  width: ${({ isMobile }) => (!isMobile && "60%")};
+  width: ${({ isMobile }) => !isMobile && "60%"};
 `;
 
 export interface ImageContainerProps {
@@ -58,7 +58,7 @@ export interface ImageContainerProps {
 
 export const ImageContainer = styled<ImageContainerProps, "div">("div")`
   width: ${({ isMobile }) => (isMobile ? "100%" : "40%")};
-  height: ${({ isMobile }) => (isMobile && "200px")};
+  height: ${({ isMobile }) => isMobile && "200px"};
   background: ${({ imagePath }) => `url(${imagePath}) no-repeat`};
   background-position: center;
   background-size: contain;
@@ -85,7 +85,7 @@ interface StateProps {}
 
 export default class ProjectDetails extends React.Component<Props, StateProps> {
   render(): JSX.Element {
-    console.log()
+    console.log();
     return (
       <ProjectDetailsContainer>
         <Content isMobile={this.props.isMobile} isTablet={this.props.isTablet}>

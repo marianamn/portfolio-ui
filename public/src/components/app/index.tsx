@@ -16,7 +16,7 @@ injectGlobal`
 
   @font-face {
     font-family: RobotoCondensed-Italic;
-    src: url("assets/fonts/RobotoCondensed-Italic.ttff") format("opentype");
+    src: url("assets/fonts/RobotoCondensed-Italic.ttf") format("opentype");
   }
 
   @font-face {

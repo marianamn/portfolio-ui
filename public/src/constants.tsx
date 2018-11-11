@@ -1,4 +1,4 @@
-import { ProjectContainerStyles, ProjectData } from "./interfaces";
+import { ProjectContainerStyles, ProjectData, Biography } from "./interfaces";
 
 export const mobileResolution = 480;
 export const tabletResolution = 768;
@@ -125,3 +125,15 @@ export const projects: ReadonlyArray<ProjectData> = [
     period: "2018",
   },
 ];
+export const biography: Biography = {
+  image: "assets/images/whoAmI.jpeg",
+  whoAmI:
+    "There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text. All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary, making this the first true generator on the Internet. It uses a dictionary of over 200 Latin words, combined with a handful of model sentence structures, to generate Lorem Ipsum which looks reasonable. The generated Lorem Ipsum is therefore always free from repetition, injected humour, or non-characteristic words etc.",
+  whatAreMyProfessionalPassions:
+    "There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text. All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary, making this the first true generator on the Internet. It uses a dictionary of over 200 Latin words, combined with a handful of model sentence structures, to generate Lorem Ipsum which looks reasonable",
+  professionalInterests: ["React.js", "Redux", "Node.js"],
+  achievements: [
+    "My persistence demonstrated through all the courses in the Academy and not giving up no matter how hard it was.",
+    "Telerik Academy Ninja: Good collaboration in teamworks. New friendships built. New knowledge acquired.",
+  ],
+};

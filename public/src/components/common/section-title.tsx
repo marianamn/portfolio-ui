@@ -23,11 +23,11 @@ export const SectionTitle = styled<SectionTitleProps, "div">("div")`
       right: 10%;
     `};
 
-  @media only screen and (max-width: 1050px) {
+  @media only screen and (max-width: 1180px) {
     font-size: 2.5rem;
   }
 
-  @media only screen and (max-width: 880px) {
+  @media only screen and (max-width: 1000px) {
     font-size: 2rem;
   }
 `;

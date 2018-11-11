@@ -1,7 +1,7 @@
 import * as React from "react";
 import styled from "styled-components";
 import { ChevronCircleUp } from "styled-icons/fa-solid/ChevronCircleUp";
-import { mobileResolution, tabletResolution, projects } from "../../constants";
+import { mobileResolution, tabletResolution, projects, biography } from "../../constants";
 import HeaderSection from "../header/index";
 import PortfolioSection from "../portfolio/index";
 import BiographySection from "../biography/index";
@@ -83,9 +83,7 @@ export default class Layout extends React.Component<Props, State> {
         <HeaderSection
           isMobile={isMobile}
           scrollToElement={this.scrollToElement}
-          ref={section => {
-            this.topRef = section;
-          }}
+          ref={section => (this.topRef = section)}
         />
 
         {!this.state.showProjectDetails ? (
@@ -95,9 +93,7 @@ export default class Layout extends React.Component<Props, State> {
             projects={projects}
             toggleShowProjectDetails={this.toggleShowProjectDetails}
             getProjectDetails={this.getProjectDetails}
-            ref={section => {
-              this.projectsRef = section;
-            }}
+            ref={section => (this.projectsRef = section)}
           />
         ) : (
           <ProjectDetails
@@ -110,16 +106,11 @@ export default class Layout extends React.Component<Props, State> {
 
         <BiographySection
           isMobile={isMobile}
-          ref={section => {
-            this.biographyRef = section;
-          }}
+          isTablet={isTablet}
+          biography={biography}
+          ref={section => (this.biographyRef = section)}
         />
-        <InterestsSection
-          isMobile={isMobile}
-          ref={section => {
-            this.interestsRef = section;
-          }}
-        />
+        <InterestsSection isMobile={isMobile} ref={section => (this.interestsRef = section)} />
         <Footer />
 
         {/* tslint:disable-next-line:jsx-no-lambda */}
