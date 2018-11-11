@@ -1,7 +1,7 @@
 import * as React from "react";
 import styled from "styled-components";
 import { ChevronCircleUp } from "styled-icons/fa-solid/ChevronCircleUp";
-import { mobileResolution, tabletResolution, projects, biography } from "../../constants";
+import { mobileResolution, tabletResolution, projects, biography, interests } from "../../constants";
 import HeaderSection from "../header/index";
 import PortfolioSection from "../portfolio/index";
 import BiographySection from "../biography/index";
@@ -110,7 +110,12 @@ export default class Layout extends React.Component<Props, State> {
           biography={biography}
           ref={section => (this.biographyRef = section)}
         />
-        <InterestsSection isMobile={isMobile} ref={section => (this.interestsRef = section)} />
+        <InterestsSection
+          isMobile={isMobile}
+          isTablet={isTablet}
+          interests={interests}
+          ref={section => (this.interestsRef = section)}
+        />
         <Footer />
 
         {/* tslint:disable-next-line:jsx-no-lambda */}

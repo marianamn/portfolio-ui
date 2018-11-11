@@ -1,4 +1,5 @@
-import { ProjectContainerStyles, ProjectData, Biography } from "./interfaces";
+import { ProjectContainerStyles, ProjectData, Biography, Interests } from "./interfaces";
+import { BookDimensions } from "styled-icons/material/Book";
 
 export const mobileResolution = 480;
 export const tabletResolution = 768;
@@ -48,6 +49,7 @@ export const projectContainersCss: ReadonlyArray<ProjectContainerStyles> = [
 ];
 
 export const menuItems: ReadonlyArray<string> = ["Projects", "Biography", "Interests"];
+
 export const projects: ReadonlyArray<ProjectData> = [
   {
     id: "1",
@@ -125,6 +127,7 @@ export const projects: ReadonlyArray<ProjectData> = [
     period: "2018",
   },
 ];
+
 export const biography: Biography = {
   image: "assets/images/whoAmI.jpeg",
   whoAmI:
@@ -137,3 +140,15 @@ export const biography: Biography = {
     "Telerik Academy Ninja: Good collaboration in teamworks. New friendships built. New knowledge acquired.",
   ],
 };
+
+export const interests: Interests = {
+  quote: {
+    text: "As soon as something stops being fun, I think it’s time to move on. Life is too short to be unhappy. Waking up stressed and miserable is not a good way to live.",
+    author: "Richard Branson",
+  },
+  hobbies: [
+    { name: "books", image: "assets/images/book.jpeg" },
+    { name: "puzzles", image: "assets/images/puzzle.jpeg" },
+    { name: "origami", image: "assets/images/origami.jpeg" },
+  ],
+}

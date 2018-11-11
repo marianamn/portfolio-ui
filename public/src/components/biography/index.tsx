@@ -22,7 +22,7 @@ export const BiographyContainer = styled("div")`
 export const Heading = styled<BiographyProps, "div">("div")`
   float: ${({ isMobile }) => (isMobile ? "none" : "left")};
   width: ${({ isMobile, isTablet }) => isMobile ? "100%" : (isTablet ? "50%" : "30%")};
-  margin-right: ${({ isTablet }) => (isTablet ? "10px" : "25px")};
+  margin-right: ${({ isMobile, isTablet }) => isTablet ? "10px" : (isMobile ? "0" : "25px")};
 `;
 
 export const ProfessionalSection = styled<BiographyProps, "div">("div")`
