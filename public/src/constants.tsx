@@ -1,8 +1,15 @@
-import { ProjectContainerStyles, ProjectData, Biography, Interests } from "./interfaces";
-import { BookDimensions } from "styled-icons/material/Book";
+import {
+  ProjectContainerStyles,
+  ProjectData,
+  Biography,
+  Interests,
+} from "./interfaces";
 
+// Device resolutions
 export const mobileResolution = 480;
 export const tabletResolution = 768;
+
+// Personal info details
 export const name = "Mariana Naidenova";
 export const email = "mariana.naidenova.naidenova@gmail.com";
 export const socialMediaLinks = {
@@ -10,6 +17,12 @@ export const socialMediaLinks = {
   twitter: "https://twitter.com/mariana_mnn",
   linkedIn: "https://www.linkedin.com/in/mariana-naidenova-89486a43/",
 };
+export const personalImage = "https://res.cloudinary.com/mariana-mn/image/upload/v1546775007/portfolio/media-share-0-02-05-823ba023b60561ea119e8257719207536a2e80c67d195cc846409cac2c845085-5734c6eb-9681-42da-9979-b9c491e72c1d.jpg";
+
+// Main Menu
+export const menuItems: ReadonlyArray<string> = ["Projects", "Biography", "Interests"];
+
+// Projects data
 export const projectContainersCss: ReadonlyArray<ProjectContainerStyles> = [
   {
     width: "calc(40% - 20px)",
@@ -47,8 +60,6 @@ export const projectContainersCss: ReadonlyArray<ProjectContainerStyles> = [
     marginTop: "-100px",
   },
 ];
-
-export const menuItems: ReadonlyArray<string> = ["Projects", "Biography", "Interests"];
 
 export const projects: ReadonlyArray<ProjectData> = [
   {
@@ -128,6 +139,7 @@ export const projects: ReadonlyArray<ProjectData> = [
   },
 ];
 
+// Biography data
 export const biography: Biography = {
   image: "assets/images/whoAmI.jpeg",
   whoAmI:
@@ -141,9 +153,11 @@ export const biography: Biography = {
   ],
 };
 
+// Interests data
 export const interests: Interests = {
   quote: {
-    text: "As soon as something stops being fun, I think it’s time to move on. Life is too short to be unhappy. Waking up stressed and miserable is not a good way to live.",
+    text:
+      "As soon as something stops being fun, I think it’s time to move on. Life is too short to be unhappy. Waking up stressed and miserable is not a good way to live.",
     author: "Richard Branson",
   },
   hobbies: [
@@ -151,4 +165,4 @@ export const interests: Interests = {
     { name: "puzzles", image: "assets/images/puzzle.jpeg" },
     { name: "origami", image: "assets/images/origami.jpeg" },
   ],
-}
+};

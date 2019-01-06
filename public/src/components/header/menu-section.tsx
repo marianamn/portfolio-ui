@@ -1,9 +1,7 @@
 import * as React from "react";
 import styled, { css } from "styled-components";
-import { email } from "../../constants";
 import { Menu } from "styled-icons/feather/Menu";
 import { Close } from "styled-icons/material/Close";
-import { Mail } from "styled-icons/feather/Mail";
 import { GradientContainer } from "../common/gradient-container";
 import MobileMenu from "./menu-mobile";
 import MenuListContainer from "./menu-list";
@@ -65,40 +63,6 @@ export const MenuBarsContainer = styled("div")`
   }
 `;
 
-export const Contacts = styled("div")`
-  position: absolute;
-  left: 25%;
-  bottom: 60px;
-  right: 10px;
-
-  &:hover {
-    cursor: pointer;
-
-    span,
-    .icon {
-      color: #e9eae2;
-    }
-  }
-
-  span {
-    word-wrap: break-word;
-    word-break: break-all;
-    font-size: 13px;
-    color: white;
-  }
-
-  .icon {
-    color: white;
-    width: 18px;
-    height: 18px;
-    margin-right: 5px;
-  }
-
-  @media only screen and (max-width: 768px) {
-    left: 45%;
-  }
-`;
-
 interface Props {
   readonly isMobile?: boolean;
   readonly isToggled: boolean;
@@ -143,17 +107,8 @@ export default class MenuSection extends React.Component<Props> {
               </div>
             )}
           </MenuContainer>
-
-          <Contacts onClick={this.sendEmail}>
-            <Mail className="icon" />
-            <span>{email}</span>
-          </Contacts>
         </GradientContainer>
       );
     }
   }
-
-  private readonly sendEmail = (): any => {
-    window.location.href = `mailto:${email}`;
-  };
 }

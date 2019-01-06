@@ -11,6 +11,7 @@ export const ProjectDetailsContainer = styled("div")`
   position: relative;
   font-family: RobotoCondensed-Light;
   color: #333333;
+  height: 100vh;
 `;
 
 export interface ContentProps {
@@ -85,7 +86,6 @@ interface StateProps {}
 
 export default class ProjectDetails extends React.Component<Props, StateProps> {
   render(): JSX.Element {
-    console.log();
     return (
       <ProjectDetailsContainer>
         <Content isMobile={this.props.isMobile} isTablet={this.props.isTablet}>

@@ -4,7 +4,7 @@ import { Menu } from "styled-icons/feather/Menu";
 import { Close } from "styled-icons/material/Close";
 import { name } from "../../constants";
 import MenuListContainer from "./menu-list";
-import SocialIcons from "../common/social-icons";
+import ContactIcons from "../common/contact-icons";
 
 export const MenuContainer = styled("div")`
   background: #7acec3;
@@ -12,9 +12,8 @@ export const MenuContainer = styled("div")`
 `;
 
 export const MenuBarsContainer = styled("div")`
-  position: relative;
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
 `;
 
@@ -23,8 +22,6 @@ export interface MenuBtnProps {
 }
 
 export const MenuBtn = styled<MenuBtnProps, "div">("div")`
-  position: absolute;
-  left: 0;
   width: 40px;
   border: ${({ isOpened }) => (isOpened ? "none" : "1.5px solid white")};
   display: flex;
@@ -42,14 +39,9 @@ export const MenuBtn = styled<MenuBtnProps, "div">("div")`
   }
 `;
 
-export const LogoContainer = styled("div")`
+export const NameContainer = styled("div")`
   text-align: center;
-`;
-
-export const Logo = styled("img")`
-  width: 50px;
-  height: 1.5em;
-  margin-right: 10px;
+  width: 100%;
 `;
 
 export const Name = styled("p")`
@@ -78,10 +70,9 @@ export default class MobileMenu extends React.Component<Props> {
           <MenuBtn onClick={() => this.props.toggleMenu()} isOpened={this.props.isToggled}>
             {!this.props.isToggled ? <Menu className="icon" /> : <Close className="icon" />}
           </MenuBtn>
-          <LogoContainer>
-            <Logo src="assets/images/logo-white.png" />
+          <NameContainer>
             <Name>{name}</Name>
-          </LogoContainer>
+          </NameContainer>
         </MenuBarsContainer>
 
         {this.props.isToggled && (
@@ -93,7 +84,7 @@ export default class MobileMenu extends React.Component<Props> {
         )}
         {this.props.isToggled && (
           <Icons>
-            <SocialIcons iconColor="#ffffff" iconHoverColor="#70bab1" showEmail />
+            <ContactIcons iconColor="#ffffff" iconHoverColor="#70bab1" />
           </Icons>
         )}
       </MenuContainer>

@@ -21,12 +21,13 @@ export const BiographyContainer = styled("div")`
 
 export const Heading = styled<BiographyProps, "div">("div")`
   float: ${({ isMobile }) => (isMobile ? "none" : "left")};
-  width: ${({ isMobile, isTablet }) => isMobile ? "100%" : (isTablet ? "50%" : "30%")};
-  margin-right: ${({ isMobile, isTablet }) => isTablet ? "10px" : (isMobile ? "0" : "25px")};
+  width: ${({ isMobile, isTablet }) => (isMobile ? "100%" : isTablet ? "50%" : "30%")};
+  margin-right: ${({ isMobile, isTablet }) => (isTablet ? "10px" : isMobile ? "0" : "25px")};
 `;
 
 export const ProfessionalSection = styled<BiographyProps, "div">("div")`
-  padding: ${({ isTablet, isMobile }) => isTablet ? "5px 10px 0 10px" : (isMobile ? "10px" : "25px 10px 0 10px")};
+  padding: ${({ isTablet, isMobile }) =>
+    isTablet ? "5px 10px 0 10px" : isMobile ? "10px" : "25px 10px 0 10px"};
 
   .icon {
     width: 1.2em;
@@ -82,14 +83,15 @@ export const CvLink = styled("div")`
 `;
 
 export const WhoAmISection = styled<BiographyProps, "div">("div")`
-  display: ${({ isTablet }) => isTablet ? "block" : "flex"};
+  display: ${({ isTablet }) => (isTablet ? "block" : "flex")};
   align-items: ${({ isTablet }) => !isTablet && "center"};
-  flex-direction: ${({ isMobile }) => isMobile ? "column" : "row"};
+  flex-direction: ${({ isMobile }) => (isMobile ? "column" : "row")};
 
   img {
-    width: ${({ isMobile, isTablet }) => isMobile ? "100%" : (isTablet ? "calc(50% - 10px)" : "250px")};
-    height: ${({ isMobile, isTablet }) => (isMobile || isTablet) ? "auto" : "200px"};
-    margin-left: ${({ isMobile, isTablet }) => (isMobile || isTablet) ? "0" : "10px"};
+    width: ${({ isMobile, isTablet }) =>
+      isMobile ? "100%" : isTablet ? "calc(50% - 10px)" : "250px"};
+    height: ${({ isMobile, isTablet }) => (isMobile || isTablet ? "auto" : "200px")};
+    margin-left: ${({ isMobile, isTablet }) => (isMobile || isTablet ? "0" : "10px")};
     margin-top: ${({ isMobile, isTablet }) => (isMobile || isTablet) && "10px"};
   }
 `;
@@ -102,7 +104,6 @@ interface Props {
 
 export default class BiographySection extends React.Component<Props> {
   render(): JSX.Element {
-    console.log(this.props.isTablet)
     return (
       <BiographyContainer>
         <Heading isTablet={this.props.isTablet} isMobile={this.props.isMobile}>
@@ -120,16 +121,17 @@ export default class BiographySection extends React.Component<Props> {
         </Heading>
 
         <ProfessionalSection isTablet={this.props.isTablet} isMobile={this.props.isMobile}>
-          {!this.props.isTablet
-            ? <WhoAmISection isMobile={this.props.isMobile}>
-                <ContentTitle>{this.props.biography.whoAmI}</ContentTitle>
-                <img src={this.props.biography.image} />
-              </WhoAmISection>
-            : <WhoAmISection isTablet={this.props.isTablet}>
-                <img src={this.props.biography.image} />
-                <ContentTitle>{this.props.biography.whoAmI}</ContentTitle>
-              </WhoAmISection>
-          }
+          {!this.props.isTablet ? (
+            <WhoAmISection isMobile={this.props.isMobile}>
+              <ContentTitle>{this.props.biography.whoAmI}</ContentTitle>
+              <img src={this.props.biography.image} />
+            </WhoAmISection>
+          ) : (
+            <WhoAmISection isTablet={this.props.isTablet}>
+              <img src={this.props.biography.image} />
+              <ContentTitle>{this.props.biography.whoAmI}</ContentTitle>
+            </WhoAmISection>
+          )}
 
           <ContentText>{this.props.biography.whatAreMyProfessionalPassions}</ContentText>
 

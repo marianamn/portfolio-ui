@@ -1,29 +1,22 @@
 import * as React from "react";
 import styled from "styled-components";
-import LogoSection from "./logo-section";
+import ImageSection from "./image-section";
 import MenuSection from "./menu-section";
 
-export const NavbarContainer = styled("div")`
-  height: 450px;
+interface NavbarContainerProps {
+  readonly isMobile?: boolean;
+}
+
+export const NavbarContainer = styled<NavbarContainerProps, "div">("div")`
+  height: ${({ isMobile }) => isMobile ? "auto" : "500px"};
   display: flex;
-
-  @media only screen and (max-width: 1000px) {
-    height: 400px;
-  }
-
-  @media only screen and (max-width: 768px) {
-    height: 300px;
-  }
-
-  @media only screen and (max-width: 480px) {
-    flex-direction: column-reverse;
-    height: auto;
-  }
+  flex-direction: ${({ isMobile }) => isMobile && "column-reverse"};
 `;
 
 interface Props {
   readonly isMobile?: boolean;
   readonly scrollToElement: (id: string) => void;
+  readonly isImageLoaded: (loaded: boolean) => void;
 }
 
 interface State {
@@ -38,8 +31,11 @@ export default class HeaderSection extends React.Component<Props, State> {
 
   render(): JSX.Element {
     return (
-      <NavbarContainer>
-        <LogoSection isMobile={this.props.isMobile} />
+      <NavbarContainer isMobile={this.props.isMobile}>
+        <ImageSection
+          isMobile={this.props.isMobile}
+          isImageLoaded={this.props.isImageLoaded}
+        />
         <MenuSection
           isMobile={this.props.isMobile}
           toggleMenu={this.toggleMenu}

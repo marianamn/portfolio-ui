@@ -20,40 +20,41 @@ export const BiographyContainer = styled("div")`
 
 export const Heading = styled<BiographyProps, "div">("div")`
   float: ${({ isMobile }) => (isMobile ? "none" : "left")};
-  width: ${({ isMobile, isTablet }) => isMobile ? "100%" : (isTablet ? "50%" : "30%")};
-  margin-right: ${({ isMobile, isTablet }) => isTablet ? "10px" : (isMobile ? "0" : "25px")};
+  width: ${({ isMobile, isTablet }) => (isMobile ? "100%" : isTablet ? "50%" : "30%")};
+  margin-right: ${({ isMobile, isTablet }) => (isTablet ? "10px" : isMobile ? "0" : "25px")};
 `;
 
 export const InterestsContainer = styled<BiographyProps, "div">("div")`
   padding: 10px;
-  width: ${({ isMobile, isTablet }) => isMobile ? "100%" : (isTablet ? "calc(50% - 45px)" : "calc(70% - 45px)")};
+  width: ${({ isMobile, isTablet }) =>
+    isMobile ? "100%" : isTablet ? "calc(50% - 45px)" : "calc(70% - 45px)"};
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
   flex-direction: ${({ isMobile }) => (isMobile ? "column" : "row")};
 
   .image {
-    width: ${({ isMobile, isTablet }) => isMobile ? "100%" : (isTablet ? "32%" : "24%")};
-    height: ${({ isMobile, isTablet }) => isMobile ? "auto" : (isTablet ? "100px" : "150px")};
+    width: ${({ isMobile, isTablet }) => (isMobile ? "100%" : isTablet ? "32%" : "24%")};
+    height: ${({ isMobile, isTablet }) => (isMobile ? "auto" : isTablet ? "100px" : "150px")};
   }
 
   .image-books {
-    margin-top: ${({ isMobile, isTablet }) => isMobile ? "10px" : (isTablet ? "40px" : "150px")};
+    margin-top: ${({ isMobile, isTablet }) => (isMobile ? "10px" : isTablet ? "40px" : "150px")};
   }
 
   .image-puzzles {
-    margin-top: ${({ isMobile, isTablet }) => isMobile ? "10px" : (isTablet ? "40px" : "75px")};
+    margin-top: ${({ isMobile, isTablet }) => (isMobile ? "10px" : isTablet ? "40px" : "75px")};
   }
 
   .image-origami {
-    margin-top: ${({ isMobile, isTablet }) => isMobile ? "10px" : (isTablet ? "40px" : "0")};
+    margin-top: ${({ isMobile, isTablet }) => (isMobile ? "10px" : isTablet ? "40px" : "0")};
   }
 `;
 
 export const QuoteContainer = styled<BiographyProps, "div">("div")`
   align-self: ${({ isMobile }) => (isMobile ? "center" : "flex-end")};
   position: relative;
-  width: ${({ isMobile, isTablet }) => isMobile ? "90%" : (isTablet ? "100%" : "24%")};
+  width: ${({ isMobile, isTablet }) => (isMobile ? "90%" : isTablet ? "100%" : "24%")};
   padding: 0 10px;
 
   .quote {
@@ -105,9 +106,7 @@ export default class InterestsSection extends React.Component<Props> {
         <InterestsContainer isTablet={this.props.isTablet} isMobile={this.props.isMobile}>
           <QuoteContainer isTablet={this.props.isTablet} isMobile={this.props.isMobile}>
             <p className="quote open-quote">“</p>
-            <p className="quote-text">
-              {this.props.interests.quote.text}
-            </p>
+            <p className="quote-text">{this.props.interests.quote.text}</p>
             <p className="quote close-quote">”</p>
             <p className="author">{this.props.interests.quote.author}</p>
           </QuoteContainer>
@@ -119,7 +118,7 @@ export default class InterestsSection extends React.Component<Props> {
 
   private readonly renderHobbies = (hobbies: ReadonlyArray<Hobby>) => {
     return hobbies.map((hobby: Hobby) => {
-      return <img key={hobby.name} src={hobby.image} className={`image image-${hobby.name}`}/>;
+      return <img key={hobby.name} src={hobby.image} className={`image image-${hobby.name}`} />;
     });
-  }
+  };
 }
