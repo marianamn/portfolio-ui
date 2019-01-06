@@ -180,12 +180,12 @@ export default class Layout extends React.Component<Props, State> {
     });
   };
 
-  private readonly scrollToElement = (id: string): void => {
+  private readonly scrollToElement = (id: string, isMobile?: boolean): void => {
     switch (id) {
       case "projects":
         scrollToComponent(this.projectsRef, {
-          offset: 0,
-          align: "middle",
+          offset: isMobile ? -132 : 0,
+          align: "top",
           duration: 500,
           ease: "inCirc",
         });
@@ -193,23 +193,23 @@ export default class Layout extends React.Component<Props, State> {
       case "project-details":
         scrollToComponent(this.projectsDetailsRef, {
           offset: 0,
-          align: "middle",
+          align: "top",
           duration: 500,
           ease: "inCirc",
         });
         break;
       case "biography":
         scrollToComponent(this.biographyRef, {
-          offset: 65,
-          align: "middle",
+          offset: isMobile ? -132 : 0,
+          align: "top",
           duration: 500,
           ease: "inCirc",
         });
         break;
       case "interests":
         scrollToComponent(this.interestsRef, {
-          offset: 0,
-          align: "middle",
+          offset: isMobile ? -132 : 0,
+          align: "top",
           duration: 500,
           ease: "inCirc",
         });
@@ -217,7 +217,7 @@ export default class Layout extends React.Component<Props, State> {
       case "top":
         scrollToComponent(this.topRef, {
           offset: 0,
-          align: "middle",
+          align: "top",
           duration: 500,
           ease: "inExpo",
         });

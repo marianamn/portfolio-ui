@@ -15,7 +15,7 @@ export const NavbarContainer = styled<NavbarContainerProps, "div">("div")`
 
 interface Props {
   readonly isMobile?: boolean;
-  readonly scrollToElement: (id: string) => void;
+  readonly scrollToElement: (id: string, isMobile?: boolean) => void;
   readonly isImageLoaded: (loaded: boolean) => void;
 }
 

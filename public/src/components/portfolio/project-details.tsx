@@ -5,19 +5,17 @@ import { Close } from "styled-icons/material/Close";
 import Tags from "./tags";
 import ImageCarousel from "./carousel";
 
+export interface ContentProps {
+  readonly isMobile?: boolean;
+  readonly isTablet?: boolean;
+}
 export const ProjectDetailsContainer = styled("div")`
   background: #ffffff;
   padding: 20px;
   position: relative;
   font-family: RobotoCondensed-Light;
   color: #333333;
-  height: 100vh;
 `;
-
-export interface ContentProps {
-  readonly isMobile?: boolean;
-  readonly isTablet?: boolean;
-}
 
 export const Content = styled<ContentProps, "div">("div")`
   width: ${({ isMobile, isTablet }) => (isTablet || isMobile ? "100%" : "80%")};

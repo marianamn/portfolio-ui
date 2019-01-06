@@ -12,7 +12,7 @@ export const ImageContainer = styled<ImageContainerProps, "div">("div")`
   position: relative;
   background: #e9eae2;
   width: ${({ isMobile }) => isMobile ? "100%" : "70%"};
-  height: ${({ isMobile }) => isMobile && "250px"};
+  height: ${({ isMobile }) => isMobile && "280px"};
 `;
 
 export const PersonalImageContainer = styled("img")`
