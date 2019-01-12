@@ -1,9 +1,4 @@
-import {
-  ProjectContainerStyles,
-  ProjectData,
-  Biography,
-  Interests,
-} from "./interfaces";
+import { ProjectContainerStyles, ProjectData, Biography, Interests } from "./interfaces";
 
 // Device resolutions
 export const mobileResolution = 480;
@@ -17,7 +12,8 @@ export const socialMediaLinks = {
   twitter: "https://twitter.com/mariana_mnn",
   linkedIn: "https://www.linkedin.com/in/mariana-naidenova-89486a43/",
 };
-export const personalImage = "https://res.cloudinary.com/mariana-mn/image/upload/v1546775007/portfolio/media-share-0-02-05-823ba023b60561ea119e8257719207536a2e80c67d195cc846409cac2c845085-5734c6eb-9681-42da-9979-b9c491e72c1d.jpg";
+export const personalImage =
+  "https://res.cloudinary.com/mariana-mn/image/upload/v1546775007/portfolio/media-share-0-02-05-823ba023b60561ea119e8257719207536a2e80c67d195cc846409cac2c845085-5734c6eb-9681-42da-9979-b9c491e72c1d.jpg";
 
 // Main Menu
 export const menuItems: ReadonlyArray<string> = ["Projects", "Biography", "Interests"];
@@ -65,16 +61,18 @@ export const projects: ReadonlyArray<ProjectData> = [
   {
     id: "1",
     name: "Toro Workman GTX",
-    technologies: "JavaScript, Gulp",
+    technologies: "JavaScript, Gulp, SASS",
     description:
       "The Workman® GTX Series is a grounds and turf crossover vehicle that boasts an unequalled combination of comfort, utility and control, making it simply superior to the competition. Its increased power, improved steering and exclusive suspension and braking systems make the Workman GTX the most versatile, practical and comfortable utility vehicle in its class. Available in gas or electric options, the Workman GTX features hundreds of configurable options that include front and rear attachments, a flat bed and four-seat option, to name a few. So whether you are running to different jobs around the property, moving people or materials, or transporting tools to crews that need them, the Workman GTX has the power and versatility to get the job done right. ",
-    tags: ["JavaScript", "sass", "configurator", "gulp"],
+    tags: ["JavaScript", "SASS",  "gulp","configurator"],
     images: [
       "assets/images/projects/toro/toro.png",
       "assets/images/projects/toro/toro-1.PNG",
       "assets/images/projects/toro/toro-2.PNG",
       "assets/images/projects/toro/toro-3.PNG",
       "assets/images/projects/toro/toro-4.PNG",
+      "assets/images/projects/toro/toro-5.PNG",
+      "assets/images/projects/toro/toro-6.PNG",
     ],
     period: "2017",
     url:
@@ -83,20 +81,20 @@ export const projects: ReadonlyArray<ProjectData> = [
   {
     id: "2",
     name: "Personal Portfolio",
-    technologies: "React, TypeScript, Webpack, Styled-components, Node.js, Express, MongoDB",
+    technologies: "React, TypeScript, Webpack, Styled-components",
     description:
       "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
-    tags: ["React", "TypeScript", "Webpack", "Styled-components", "Node.js", "Express", "MongoDB"],
+    tags: ["React", "TypeScript", "Webpack", "Styled-components"],
     images: ["assets/images/projects/portfolio/portfolio.png"],
     period: "2018",
   },
   {
     id: "3",
     name: "DTN Instant market",
-    technologies: "Angular, JavaScript, Web Sockets, sass",
+    technologies: "Angular, JavaScript, Web Sockets, SASS",
     description:
       "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
-    tags: ["Angular", "JavaScript", "Web Sockets", "sass"],
+    tags: ["Angular", "JavaScript", "Web Sockets", "SASS"],
     images: [
       "assets/images/projects/instant-market/im.png",
       "assets/images/projects/instant-market/im-1.png",
@@ -111,7 +109,7 @@ export const projects: ReadonlyArray<ProjectData> = [
   {
     id: "4",
     name: "DTN composable widgets",
-    technologies: "",
+    technologies: "React, TypeScript, Redux, Rxjs",
     description:
       "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
     tags: ["React", "TypeScript", "Redux", "Rxjs", "Monorepo", "Lerna", "npm package create"],

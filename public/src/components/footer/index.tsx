@@ -33,10 +33,7 @@ export default class Footer extends React.Component<Props> {
       <FooterContainer>
         <LogoContainer>
           <Name>{name}</Name>
-          <ContactIcons
-            iconColor="#7acec3"
-            iconHoverColor="#70bab1"
-          />
+          <ContactIcons iconColor="#7acec3" iconHoverColor="#70bab1" />
         </LogoContainer>
 
         <Copyrights>{this.getCurrentYear()} All rights reserved.</Copyrights>
@@ -45,6 +42,6 @@ export default class Footer extends React.Component<Props> {
   }
 
   private readonly getCurrentYear = () => {
-    return (new Date()).getUTCFullYear();
-  }
+    return new Date().getUTCFullYear();
+  };
 }

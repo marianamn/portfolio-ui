@@ -37,7 +37,7 @@ export const ScrollToTop = styled("div")`
   }
 `;
 
-interface Props { }
+interface Props {}
 
 interface State {
   readonly isLoading: boolean;
@@ -96,12 +96,7 @@ export default class Layout extends React.Component<Props, State> {
 
     return (
       <MainLayout>
-        {this.state.isLoading &&
-          <Loading
-            position="fixed"
-            height="100vh"
-          />
-        }
+        {this.state.isLoading && <Loading position="fixed" height="100vh" />}
 
         <HeaderSection
           isMobile={isMobile}
@@ -119,23 +114,17 @@ export default class Layout extends React.Component<Props, State> {
             getProjectDetails={this.getProjectDetails}
             ref={section => (this.projectsRef = section)}
           />
-        ) : this.state.isProjectLoading
-            ? (
-              <Loading
-                position="relative"
-                height="400px"
-              />
-            )
-            : (
-              <ProjectDetails
-                isMobile={isMobile}
-                isTablet={isTablet}
-                toggleShowProjectDetails={this.toggleShowProjectDetails}
-                projectDetails={this.state.projectDetails}
-                ref={section => (this.projectsDetailsRef = section)}
-              />
-            )
-        }
+        ) : this.state.isProjectLoading ? (
+          <Loading position="relative" height="400px" />
+        ) : (
+          <ProjectDetails
+            isMobile={isMobile}
+            isTablet={isTablet}
+            toggleShowProjectDetails={this.toggleShowProjectDetails}
+            projectDetails={this.state.projectDetails}
+            ref={section => (this.projectsDetailsRef = section)}
+          />
+        )}
 
         <BiographySection
           isMobile={isMobile}

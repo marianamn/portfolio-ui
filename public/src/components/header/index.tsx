@@ -8,7 +8,7 @@ interface NavbarContainerProps {
 }
 
 export const NavbarContainer = styled<NavbarContainerProps, "div">("div")`
-  height: ${({ isMobile }) => isMobile ? "auto" : "500px"};
+  height: ${({ isMobile }) => (isMobile ? "auto" : "500px")};
   display: flex;
   flex-direction: ${({ isMobile }) => isMobile && "column-reverse"};
 `;
@@ -32,10 +32,7 @@ export default class HeaderSection extends React.Component<Props, State> {
   render(): JSX.Element {
     return (
       <NavbarContainer isMobile={this.props.isMobile}>
-        <ImageSection
-          isMobile={this.props.isMobile}
-          isImageLoaded={this.props.isImageLoaded}
-        />
+        <ImageSection isMobile={this.props.isMobile} isImageLoaded={this.props.isImageLoaded} />
         <MenuSection
           isMobile={this.props.isMobile}
           toggleMenu={this.toggleMenu}

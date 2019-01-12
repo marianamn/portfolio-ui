@@ -11,8 +11,8 @@ interface ImageContainerProps {
 export const ImageContainer = styled<ImageContainerProps, "div">("div")`
   position: relative;
   background: #e9eae2;
-  width: ${({ isMobile }) => isMobile ? "100%" : "70%"};
-  height: ${({ isMobile }) => isMobile && "280px"};
+  width: ${({ isMobile }) => (isMobile ? "100%" : "70%")};
+  height: ${({ isMobile }) => isMobile && "300px"};
 `;
 
 export const PersonalImageContainer = styled("img")`
@@ -26,7 +26,7 @@ export const PersonalDetailsContainer = styled<ImageContainerProps, "div">("div"
   bottom: 0;
   right: 0;
   top: 0;
-  max-width: ${({ isMobile }) => isMobile ? "35%" : "40%"};
+  max-width: ${({ isMobile }) => (isMobile ? "35%" : "40%")};
   background: #151717;
   opacity: 0.5;
   padding: 20px;
@@ -41,7 +41,7 @@ export const Details = styled<ImageContainerProps, "p">("p")`
 
   .addressing {
     font-size: 1.25em;
-    margin: ${({ isMobile }) => isMobile ? "0 0 20px 0" : "20px 0"};
+    margin: ${({ isMobile }) => (isMobile ? "0 0 20px 0" : "20px 0")};
   }
 
   .name {
@@ -51,7 +51,7 @@ export const Details = styled<ImageContainerProps, "p">("p")`
 
   .details {
     font-family: RobotoCondensed-Italic, sans-serif;
-    margin: ${({ isMobile }) => isMobile ? "0" : "40px 0"};
+    margin: ${({ isMobile }) => (isMobile ? "0" : "40px 0")};
   }
 `;
 
@@ -81,21 +81,20 @@ export default class ImageSection extends React.Component<Props> {
             <span className="addressing">
               {this.props.isMobile ? "Hi there!" : "Hi there, my name is"}
             </span>
-            {!this.props.isMobile &&
-              <span className="name">{name}</span>
-            }
-            <span className="details">Welcome to my personal portfolio page. Here you can see my professional passions, some of my projects that I'm most proud of and also to have a little sneak into my new hobbies and interests.</span>
+            {!this.props.isMobile && <span className="name">{name}</span>}
+            <span className="details">
+              Welcome to my personal portfolio page. Here you can see my professional passions, some
+              of my projects that I'm most proud of and also to have a little sneak into my new
+              hobbies and interests.
+            </span>
           </Details>
         </PersonalDetailsContainer>
 
-        {!this.props.isMobile &&
+        {!this.props.isMobile && (
           <ContactIconsContainer>
-            <ContactIcons
-              iconColor="#7acec3"
-              iconHoverColor="#70bab1"
-            />
+            <ContactIcons iconColor="#7acec3" iconHoverColor="#70bab1" />
           </ContactIconsContainer>
-        }
+        )}
       </ImageContainer>
     );
   }

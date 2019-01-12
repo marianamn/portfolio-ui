@@ -18,11 +18,10 @@ export const ProjectDetailsContainer = styled("div")`
 `;
 
 export const Content = styled<ContentProps, "div">("div")`
-  width: ${({ isMobile, isTablet }) => (isTablet || isMobile ? "100%" : "80%")};
+  width: ${({ isMobile, isTablet }) => (isTablet || isMobile ? "100%" : "85%")};
   margin: 0 auto;
   display: flex;
   margin-top: 25px;
-  margin-bottom: 25px;
 `;
 
 export const CloseBtnContainer = styled<ContentProps, "div">("div")`
@@ -48,6 +47,12 @@ export const CloseBtnContainer = styled<ContentProps, "div">("div")`
 
 export const ProjectInfo = styled<ContentProps, "div">("div")`
   width: ${({ isMobile }) => !isMobile && "60%"};
+  margin-right: 20px;
+
+  a {
+    color: #333333;
+    text-decoration: none;
+  }
 `;
 
 export interface ImageContainerProps {
@@ -56,7 +61,7 @@ export interface ImageContainerProps {
 }
 
 export const ImageContainer = styled<ImageContainerProps, "div">("div")`
-  width: ${({ isMobile }) => (isMobile ? "100%" : "40%")};
+  width: ${({ isMobile }) => (isMobile ? "100%" : "calc(40% - 20px)")};
   height: ${({ isMobile }) => isMobile && "200px"};
   background: ${({ imagePath }) => `url(${imagePath}) no-repeat`};
   background-position: center;
@@ -71,6 +76,12 @@ export const ProjectName = styled("h3")`
 export const ProjectDescription = styled("div")`
   font-size: 0.875em;
   margin: 3em 0;
+`;
+
+export const CarouselContainer = styled<ContentProps, "div">("div")`
+  width: ${({ isMobile, isTablet }) => (isTablet || isMobile ? "100%" : "85%")};
+  margin: 0 auto;
+  margin-bottom: 25px;
 `;
 
 interface Props {
@@ -90,6 +101,9 @@ export default class ProjectDetails extends React.Component<Props, StateProps> {
           <ProjectInfo isMobile={this.props.isMobile}>
             <ProjectName>{this.props.projectDetails.name}</ProjectName>
             <Tags tags={this.props.projectDetails.tags} />
+            {this.props.projectDetails.url &&
+              <p><a href={this.props.projectDetails.url} target="_blank">{this.props.projectDetails.url}</a></p>
+            }
             {this.props.isMobile && (
               <ImageContainer
                 isMobile={this.props.isMobile}
@@ -97,7 +111,6 @@ export default class ProjectDetails extends React.Component<Props, StateProps> {
               />
             )}
             <ProjectDescription>{this.props.projectDetails.description}</ProjectDescription>
-            <ImageCarousel images={this.props.projectDetails.images} />
           </ProjectInfo>
 
           {!this.props.isMobile && (
@@ -107,6 +120,10 @@ export default class ProjectDetails extends React.Component<Props, StateProps> {
             />
           )}
         </Content>
+
+        <CarouselContainer isMobile={this.props.isMobile} isTablet={this.props.isTablet}>
+          <ImageCarousel images={this.props.projectDetails.images} />
+        </CarouselContainer>
 
         <CloseBtnContainer
           // tslint:disable-next-line:jsx-no-lambda

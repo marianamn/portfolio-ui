@@ -81,10 +81,7 @@ export const Square = styled("div")`
 export default class Loading extends React.Component<Props> {
   render(): JSX.Element {
     return (
-      <LoaderWrapper
-        height={this.props.height}
-        position={this.props.position}
-      >
+      <LoaderWrapper height={this.props.height} position={this.props.position}>
         <Loader>
           <Square className="square-1" />
           <Square className="square-2" />
