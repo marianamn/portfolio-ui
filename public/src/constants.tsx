@@ -61,10 +61,10 @@ export const projects: ReadonlyArray<ProjectData> = [
   {
     id: "1",
     name: "Toro Workman GTX",
-    technologies: "JavaScript, Gulp, SASS",
+    technologies: "JavaScript, Gulp, sass",
     description:
       "The Workman® GTX Series is a grounds and turf crossover vehicle that boasts an unequalled combination of comfort, utility and control, making it simply superior to the competition. Its increased power, improved steering and exclusive suspension and braking systems make the Workman GTX the most versatile, practical and comfortable utility vehicle in its class. Available in gas or electric options, the Workman GTX features hundreds of configurable options that include front and rear attachments, a flat bed and four-seat option, to name a few. So whether you are running to different jobs around the property, moving people or materials, or transporting tools to crews that need them, the Workman GTX has the power and versatility to get the job done right. ",
-    tags: ["JavaScript", "SASS",  "gulp","configurator"],
+    tags: ["JavaScript", "sass", "gulp", "configurator"],
     images: [
       "assets/images/projects/toro/toro.png",
       "assets/images/projects/toro/toro-1.PNG",
@@ -91,10 +91,10 @@ export const projects: ReadonlyArray<ProjectData> = [
   {
     id: "3",
     name: "DTN Instant market",
-    technologies: "Angular, JavaScript, Web Sockets, SASS",
+    technologies: "Angular, JavaScript, Web Sockets, sass",
     description:
       "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
-    tags: ["Angular", "JavaScript", "Web Sockets", "SASS"],
+    tags: ["Angular", "JavaScript", "Web Sockets", "sass"],
     images: [
       "assets/images/projects/instant-market/im.png",
       "assets/images/projects/instant-market/im-1.png",
@@ -117,23 +117,28 @@ export const projects: ReadonlyArray<ProjectData> = [
       "assets/images/projects/widgets/widgets.PNG",
       "assets/images/projects/widgets/widgets-1.PNG",
       "assets/images/projects/widgets/widgets-2.PNG",
+      "assets/images/projects/widgets/widgets-3.PNG",
     ],
     period: "2018/2019",
+    url: "https://cs-widget-docs.dtn.com/index.html",
   },
   {
     id: "5",
     name: "Enjoy Copenhagen",
-    technologies: "",
+    technologies: "React, Redux, redux-thunk, sass, Firebase",
     description:
       "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
-    tags: [""],
+    tags: ["React", "Redux", "redux-thunk", "sass", "Firebase"],
     images: [
       "assets/images/projects/ec/ec.PNG",
       "assets/images/projects/ec/ec-1.PNG",
       "assets/images/projects/ec/ec-2.png",
       "assets/images/projects/ec/ec-3.png",
+      "assets/images/projects/ec/ec-4.PNG",
+      "assets/images/projects/ec/ec-5.PNG",
     ],
     period: "2018",
+    url: "https://www.enjoycopenhagen.dk/en",
   },
 ];
 

@@ -45,8 +45,8 @@ export const CloseBtnContainer = styled<ContentProps, "div">("div")`
   }
 `;
 
-export const ProjectInfo = styled<ContentProps, "div">("div")`
-  width: ${({ isMobile }) => !isMobile && "60%"};
+export const ProjectInfo = styled("div")`
+  width: 100%;
   margin-right: 20px;
 
   a {
@@ -59,14 +59,6 @@ export interface ImageContainerProps {
   readonly imagePath: string;
   readonly isMobile?: boolean;
 }
-
-export const ImageContainer = styled<ImageContainerProps, "div">("div")`
-  width: ${({ isMobile }) => (isMobile ? "100%" : "calc(40% - 20px)")};
-  height: ${({ isMobile }) => isMobile && "200px"};
-  background: ${({ imagePath }) => `url(${imagePath}) no-repeat`};
-  background-position: center;
-  background-size: contain;
-`;
 
 export const ProjectName = styled("h3")`
   font-size: 1.875em;
@@ -98,27 +90,18 @@ export default class ProjectDetails extends React.Component<Props, StateProps> {
     return (
       <ProjectDetailsContainer>
         <Content isMobile={this.props.isMobile} isTablet={this.props.isTablet}>
-          <ProjectInfo isMobile={this.props.isMobile}>
+          <ProjectInfo>
             <ProjectName>{this.props.projectDetails.name}</ProjectName>
             <Tags tags={this.props.projectDetails.tags} />
-            {this.props.projectDetails.url &&
-              <p><a href={this.props.projectDetails.url} target="_blank">{this.props.projectDetails.url}</a></p>
-            }
-            {this.props.isMobile && (
-              <ImageContainer
-                isMobile={this.props.isMobile}
-                imagePath={this.props.projectDetails.images[0]}
-              />
+            {this.props.projectDetails.url && (
+              <p>
+                <a href={this.props.projectDetails.url} target="_blank">
+                  {this.props.projectDetails.url}
+                </a>
+              </p>
             )}
             <ProjectDescription>{this.props.projectDetails.description}</ProjectDescription>
           </ProjectInfo>
-
-          {!this.props.isMobile && (
-            <ImageContainer
-              isMobile={this.props.isMobile}
-              imagePath={this.props.projectDetails.images[0]}
-            />
-          )}
         </Content>
 
         <CarouselContainer isMobile={this.props.isMobile} isTablet={this.props.isTablet}>
