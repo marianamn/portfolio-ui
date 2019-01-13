@@ -1,4 +1,5 @@
 import * as React from "react";
+import * as ReactDOM from "react-dom";
 import styled from "styled-components";
 import { ChevronCircleUp } from "styled-icons/fa-solid/ChevronCircleUp";
 import {
@@ -16,8 +17,6 @@ import InterestsSection from "../interests/index";
 import Footer from "../footer/";
 import ProjectDetails from "../portfolio/project-details";
 import { ProjectData } from "../../interfaces";
-
-const scrollToComponent = require("react-scroll-to-component");
 
 export const MainLayout = styled("div")`
   position: relative;
@@ -37,7 +36,7 @@ export const ScrollToTop = styled("div")`
   }
 `;
 
-interface Props {}
+interface Props { }
 
 interface State {
   readonly isLoading: boolean;
@@ -48,15 +47,20 @@ interface State {
 }
 
 export default class Layout extends React.Component<Props, State> {
-  private projectsRef: {};
-  private projectsDetailsRef: {};
-  private biographyRef: {};
-  private interestsRef: {};
-  private topRef: {};
+  private projectsRef: any;
+  private projectsDetailsRef: any
+  private biographyRef: any
+  private interestsRef: any;
+  private topRef: any;
 
   // tslint:disable-next-line:member-ordering
   constructor(props: Props, state: State) {
     super(props, state);
+    this.topRef = React.createRef();
+    this.projectsRef = React.createRef();
+    this.projectsDetailsRef = React.createRef();
+    this.biographyRef = React.createRef();
+    this.interestsRef = React.createRef();
     this.state = {
       isLoading: true,
       isProjectLoading: false,
@@ -89,6 +93,13 @@ export default class Layout extends React.Component<Props, State> {
     this.setState({ isLoading: loaded });
   };
 
+  handleScrollToElement = (ref: any) => {
+    window.scrollTo({
+      top: ref.current.offsetTop,
+      behavior: "smooth",
+    });
+  }
+
   render(): JSX.Element {
     const isMobile = this.state.containerWidth <= mobileResolution;
     const isTablet =
@@ -102,42 +113,46 @@ export default class Layout extends React.Component<Props, State> {
           isMobile={isMobile}
           scrollToElement={this.scrollToElement}
           isImageLoaded={this.isImageLoaded}
-          ref={section => (this.topRef = section)}
+          ref={this.topRef}
         />
 
         {!this.state.showProjectDetails ? (
-          <PortfolioSection
-            isMobile={isMobile}
-            isTablet={isTablet}
-            projects={projects}
-            toggleShowProjectDetails={this.toggleShowProjectDetails}
-            getProjectDetails={this.getProjectDetails}
-            ref={section => (this.projectsRef = section)}
-          />
+          <div ref={this.projectsRef}>
+            <PortfolioSection
+              isMobile={isMobile}
+              isTablet={isTablet}
+              projects={projects}
+              toggleShowProjectDetails={this.toggleShowProjectDetails}
+              getProjectDetails={this.getProjectDetails}
+            />
+          </div>
         ) : this.state.isProjectLoading ? (
           <Loading position="relative" height="400px" />
         ) : (
-          <ProjectDetails
+              <div ref={this.projectsDetailsRef}>
+                <ProjectDetails
+                  isMobile={isMobile}
+                  isTablet={isTablet}
+                  toggleShowProjectDetails={this.toggleShowProjectDetails}
+                  projectDetails={this.state.projectDetails}
+                />
+              </div>
+            )}
+        <div ref={this.biographyRef}>
+          <BiographySection
             isMobile={isMobile}
             isTablet={isTablet}
-            toggleShowProjectDetails={this.toggleShowProjectDetails}
-            projectDetails={this.state.projectDetails}
-            ref={section => (this.projectsDetailsRef = section)}
+            biography={biography}
           />
-        )}
+        </div>
+        <div ref={this.interestsRef}>
+          <InterestsSection
+            isMobile={isMobile}
+            isTablet={isTablet}
+            interests={interests}
+          />
+        </div>
 
-        <BiographySection
-          isMobile={isMobile}
-          isTablet={isTablet}
-          biography={biography}
-          ref={section => (this.biographyRef = section)}
-        />
-        <InterestsSection
-          isMobile={isMobile}
-          isTablet={isTablet}
-          interests={interests}
-          ref={section => (this.interestsRef = section)}
-        />
         <Footer />
 
         {/* tslint:disable-next-line:jsx-no-lambda */}
@@ -169,47 +184,21 @@ export default class Layout extends React.Component<Props, State> {
     });
   };
 
-  private readonly scrollToElement = (id: string, isMobile?: boolean): void => {
+  private readonly scrollToElement = (id: string): void => {
     switch (id) {
       case "projects":
-        scrollToComponent(this.projectsRef, {
-          offset: isMobile ? -132 : 0,
-          align: "top",
-          duration: 500,
-          ease: "inCirc",
-        });
         break;
       case "project-details":
-        scrollToComponent(this.projectsDetailsRef, {
-          offset: 0,
-          align: "top",
-          duration: 500,
-          ease: "inCirc",
-        });
+        this.handleScrollToElement(this.projectsDetailsRef);
         break;
       case "biography":
-        scrollToComponent(this.biographyRef, {
-          offset: isMobile ? -132 : 0,
-          align: "top",
-          duration: 500,
-          ease: "inCirc",
-        });
+        this.handleScrollToElement(this.biographyRef);
         break;
       case "interests":
-        scrollToComponent(this.interestsRef, {
-          offset: isMobile ? -132 : 0,
-          align: "top",
-          duration: 500,
-          ease: "inCirc",
-        });
+        this.handleScrollToElement(this.interestsRef);
         break;
       case "top":
-        scrollToComponent(this.topRef, {
-          offset: 0,
-          align: "top",
-          duration: 500,
-          ease: "inExpo",
-        });
+        this.handleScrollToElement(this.topRef);
         break;
       default:
         break;

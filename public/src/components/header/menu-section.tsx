@@ -67,7 +67,7 @@ interface Props {
   readonly isMobile?: boolean;
   readonly isToggled: boolean;
   readonly toggleMenu: () => void;
-  readonly scrollToElement: (id: string, isMobile?: boolean) => void;
+  readonly scrollToElement: (id: string) => void;
 }
 
 export default class MenuSection extends React.Component<Props> {

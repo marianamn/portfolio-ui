@@ -26,7 +26,7 @@ export const MenuItem = styled("li")`
 
 interface Props {
   readonly isMobile?: boolean;
-  readonly scrollToElement: (id: string, isMobile?: boolean) => void;
+  readonly scrollToElement: (id: string) => void;
   readonly toggleMenu: () => void;
 }
 
@@ -43,7 +43,7 @@ export default class MenuListContainer extends React.Component<Props> {
           key={item}
           // tslint:disable-next-line:jsx-no-lambda
           onClick={() => {
-            this.props.scrollToElement(`${item.toLowerCase()}`, this.props.isMobile);
+            this.props.scrollToElement(`${item.toLowerCase()}`);
             this.props.toggleMenu();
           }}
         >

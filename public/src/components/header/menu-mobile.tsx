@@ -58,7 +58,7 @@ export const Icons = styled("div")`
 interface Props {
   readonly isToggled: boolean;
   readonly toggleMenu: () => void;
-  readonly scrollToElement: (id: string, isMobile?: boolean) => void;
+  readonly scrollToElement: (id: string) => void;
 }
 
 export default class MobileMenu extends React.Component<Props> {
