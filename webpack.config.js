@@ -8,26 +8,26 @@ module.exports = {
     devtool: process.env.production ? "source-maps" : "eval",
     target: "web",
     output: {
-        path: path.resolve(__dirname, 'dist'),
-        filename: 'bundle.js'
+      path: path.resolve(__dirname, 'dist'),
+      filename: 'bundle.js'
     },
     module: {
-        rules: [
-            {
-              test: /\.tsx?$/,
-              loader: 'awesome-typescript-loader'
-            }
-        ]
+      rules: [
+        {
+          test: /\.tsx?$/,
+          loader: 'awesome-typescript-loader'
+        }
+      ]
     },
     plugins: [
-        new HtmlWebpackPlugin({
-            template: "./public/index.html"
-        }),
-        new CopyWebpackPlugin([
-          { from: 'public/assets', to: 'assets' }
-        ])
+      new HtmlWebpackPlugin({
+          template: "./public/index.html"
+      }),
+      new CopyWebpackPlugin([
+        { from: 'public/assets', to: 'assets' }
+      ])
     ],
     resolve: {
-        extensions: ['.js', '.ts', '.tsx']
+      extensions: ['.js', '.ts', '.tsx']
     }
 }

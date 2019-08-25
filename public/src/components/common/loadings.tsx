@@ -18,7 +18,7 @@ export const cubeGridScaleDelay = keyframes`
   }
 `;
 
-export const LoaderWrapper = styled<Props, "div">("div")`
+export const LoaderWrapper = styled.div<Props>`
   position: ${({ position }) => `${position}`};
   display: flex;
   align-items: center;

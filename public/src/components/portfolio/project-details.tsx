@@ -1,9 +1,10 @@
 import * as React from "react";
 import styled from "styled-components";
-import { ProjectData } from "../../interfaces";
 import { Close } from "styled-icons/material/Close";
-import Tags from "./tags";
+
+import { ProjectData } from "../../interfaces";
 import ImageCarousel from "./carousel";
+import Tags from "./tags";
 
 export interface ContentProps {
   readonly isMobile?: boolean;
@@ -17,14 +18,14 @@ export const ProjectDetailsContainer = styled("div")`
   color: #333333;
 `;
 
-export const Content = styled<ContentProps, "div">("div")`
+export const Content = styled.div<ContentProps>`
   width: ${({ isMobile, isTablet }) => (isTablet || isMobile ? "100%" : "85%")};
   margin: 0 auto;
   display: flex;
   margin-top: 25px;
 `;
 
-export const CloseBtnContainer = styled<ContentProps, "div">("div")`
+export const CloseBtnContainer = styled.div<ContentProps>`
   position: absolute;
   right: 15px;
   top: 20px;
@@ -66,11 +67,10 @@ export const ProjectName = styled("h3")`
 `;
 
 export const ProjectDescription = styled("div")`
-  font-size: 0.875em;
-  margin: 3em 0;
+  margin: 2em 0;
 `;
 
-export const CarouselContainer = styled<ContentProps, "div">("div")`
+export const CarouselContainer = styled.div<ContentProps>`
   width: ${({ isMobile, isTablet }) => (isTablet || isMobile ? "100%" : "85%")};
   margin: 0 auto;
   margin-bottom: 25px;
@@ -81,6 +81,7 @@ interface Props {
   readonly isTablet: boolean;
   readonly projectDetails: ProjectData;
   readonly toggleShowProjectDetails: () => void;
+  readonly areImagesLoaded: (imagesLoaded: boolean) => void;
 }
 
 interface StateProps {}
@@ -105,7 +106,10 @@ export default class ProjectDetails extends React.Component<Props, StateProps> {
         </Content>
 
         <CarouselContainer isMobile={this.props.isMobile} isTablet={this.props.isTablet}>
-          <ImageCarousel images={this.props.projectDetails.images} />
+          <ImageCarousel
+            images={this.props.projectDetails.images}
+            areImagesLoaded={this.props.areImagesLoaded}
+          />
         </CarouselContainer>
 
         <CloseBtnContainer

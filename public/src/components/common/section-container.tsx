@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export interface GradientContainerProps {
+export interface SectionContainerProps {
   readonly width: string;
   readonly height: string;
   readonly padding: string;
@@ -9,7 +9,7 @@ export interface GradientContainerProps {
   readonly isTablet?: boolean;
 }
 
-export const GradientContainer = styled<GradientContainerProps, "div">("div")`
+export const SectionContainer = styled.div<SectionContainerProps>`
   width: ${({ width, isMobile, isTablet }) => (isMobile ? "100%" : isTablet ? "50%" : width)};
   height: ${({ height, isMobile }) => (isMobile ? `calc(${height} / 1.5)` : height)};
   padding: ${({ padding, isMobile }) => (isMobile ? 0 : padding)};

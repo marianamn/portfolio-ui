@@ -1,12 +1,13 @@
 import * as React from "react";
 import styled from "styled-components";
+
 import { menuItems } from "../../constants";
 
 export interface MenuListProps {
   readonly isMobile: boolean;
 }
 
-export const MenuList = styled<MenuListProps, "ul">("ul")`
+export const MenuList = styled.div<MenuListProps>`
   color: white;
   list-style: none;
   padding: 0;

@@ -1,10 +1,11 @@
 import * as React from "react";
 import styled from "styled-components";
 import { FacebookF } from "styled-icons/fa-brands/FacebookF";
-import { Twitter } from "styled-icons/fa-brands/Twitter";
 import { LinkedinIn } from "styled-icons/fa-brands/LinkedinIn";
+import { Twitter } from "styled-icons/fa-brands/Twitter";
 import { Email } from "styled-icons/material/Email";
-import { socialMediaLinks, email } from "../../constants";
+
+import { email, socialMediaLinks } from "../../constants";
 
 export const SocialIconsContainer = styled("div")`
   display: flex;
@@ -16,7 +17,7 @@ export interface SocialIconsProps {
   readonly iconHoverColor?: string;
 }
 
-export const Link = styled<SocialIconsProps, "a">("a")`
+export const Link = styled.a<SocialIconsProps>`
   color: ${({ iconColor }) => `${iconColor}`};
 
   &:hover {
@@ -25,7 +26,7 @@ export const Link = styled<SocialIconsProps, "a">("a")`
   }
 `;
 
-export const Icon = styled<SocialIconsProps, "span">("span")`
+export const Icon = styled.span<SocialIconsProps>`
   margin-right: 10px;
 
   .icon {

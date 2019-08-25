@@ -1,5 +1,6 @@
 import * as React from "react";
 import styled from "styled-components";
+
 import { name, personalImage } from "../../constants";
 import ContactIcons from "../common/contact-icons";
 
@@ -8,7 +9,7 @@ interface ImageContainerProps {
   readonly isTablet?: boolean;
 }
 
-export const ImageContainer = styled<ImageContainerProps, "div">("div")`
+export const ImageContainer = styled.div<ImageContainerProps>`
   position: relative;
   background: #e9eae2;
   width: ${({ isMobile }) => (isMobile ? "100%" : "70%")};
@@ -21,7 +22,7 @@ export const PersonalImageContainer = styled("img")`
   object-fit: cover;
 `;
 
-export const PersonalDetailsContainer = styled<ImageContainerProps, "div">("div")`
+export const PersonalDetailsContainer = styled.div<ImageContainerProps>`
   position: absolute;
   bottom: 0;
   right: 0;
@@ -32,7 +33,7 @@ export const PersonalDetailsContainer = styled<ImageContainerProps, "div">("div"
   padding: 20px;
 `;
 
-export const Details = styled<ImageContainerProps, "p">("p")`
+export const Details = styled.p<ImageContainerProps>`
   font-family: RobotoCondensed-Regular, sans-serif;
   color: #ffffff;
   display: flex;
@@ -51,7 +52,8 @@ export const Details = styled<ImageContainerProps, "p">("p")`
 
   .details {
     font-family: RobotoCondensed-Italic, sans-serif;
-    margin: ${({ isMobile }) => (isMobile ? "0" : "40px 0")};
+    margin: ${({ isMobile }) => (isMobile ? "0" : "20px 0")};
+    line-height: 1.7;
   }
 `;
 

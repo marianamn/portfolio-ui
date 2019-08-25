@@ -28,9 +28,16 @@ export const CarouselContainer = styled("div")`
 
 interface Props {
   readonly images: ReadonlyArray<string>;
+  readonly areImagesLoaded: (imagesLoaded: boolean) => void;
 }
 
+let loadedImages: any = [];
+
 export default class ImageCarousel extends React.Component<Props, {}> {
+  componentWillUnmount(): void {
+    loadedImages = [];
+  }
+
   render(): JSX.Element {
     return (
       <CarouselContainer>
@@ -53,9 +60,25 @@ export default class ImageCarousel extends React.Component<Props, {}> {
     return subItems.map((image: string) => {
       return (
         <div key={image}>
-          <img src={image} />
+          <img
+            src={image}
+            // tslint:disable-next-line:jsx-no-lambda
+            onLoad={() => this.loadImage(image)}
+            // tslint:disable-next-line:jsx-no-lambda
+            onError={() => this.loadImage(image)}
+          />
         </div>
       );
     });
+  };
+
+  private readonly loadImage = (image: string) => {
+    if (loadedImages.indexOf(image) === -1) {
+      loadedImages.push(image);
+    }
+
+    if (loadedImages.length === this.props.images.length - 1) {
+      this.props.areImagesLoaded(true);
+    }
   };
 }

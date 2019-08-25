@@ -1,10 +1,11 @@
-import * as React from "react";
-import styled, { css } from "styled-components";
-import { ArrowRight } from "styled-icons/feather/ArrowRight";
-import { ProjectData } from "../../interfaces";
-import { GradientContainer } from "../common/gradient-container";
-import { SectionTitle } from "../common/section-title";
-import Project from "./project";
+import * as React from 'react';
+import styled from 'styled-components';
+import { ArrowRight } from 'styled-icons/feather/ArrowRight';
+
+import { ProjectData } from '../../interfaces';
+import { SectionContainer } from '../common/section-container';
+import { SectionTitle } from '../common/section-title';
+import Project from './project';
 
 export const PortfolioContainer = styled("div")`
   height: 100%;
@@ -16,7 +17,7 @@ export interface ListProps {
   readonly isMobile: boolean;
 }
 
-export const List = styled<ListProps, "ul">("ul")`
+export const List = styled.ul<ListProps>`
   position: absolute;
   list-style: none;
   font-size: 13px;
@@ -76,7 +77,7 @@ export default class PortfolioSection extends React.Component<Props, StateProps>
   render(): JSX.Element {
     return (
       <PortfolioContainer>
-        <GradientContainer
+        <SectionContainer
           width="30%"
           height="calc(400px - 30px)"
           padding="30px 0 0 0"
@@ -88,7 +89,7 @@ export default class PortfolioSection extends React.Component<Props, StateProps>
           <SectionTitle bottom="60px" left="35%" isMobile={this.props.isMobile}>
             Projects
           </SectionTitle>
-        </GradientContainer>
+        </SectionContainer>
 
         {this.generateProjectsContent()}
       </PortfolioContainer>

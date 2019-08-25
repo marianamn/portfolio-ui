@@ -1,7 +1,8 @@
 import * as React from "react";
 import styled from "styled-components";
-import { Interests, Hobby } from "../../interfaces";
-import { GradientContainer } from "../common/gradient-container";
+
+import { Hobby, Interests } from "../../interfaces";
+import { SectionContainer } from "../common/section-container";
 import { SectionTitle } from "../common/section-title";
 
 export interface BiographyProps {
@@ -18,17 +19,18 @@ export const BiographyContainer = styled("div")`
   font-family: RobotoCondensed-Light;
 `;
 
-export const Heading = styled<BiographyProps, "div">("div")`
+export const Heading = styled.div<BiographyProps>`
   float: ${({ isMobile }) => (isMobile ? "none" : "left")};
   width: ${({ isMobile, isTablet }) => (isMobile ? "100%" : isTablet ? "50%" : "30%")};
   margin-right: ${({ isMobile, isTablet }) => (isTablet ? "10px" : isMobile ? "0" : "25px")};
 `;
 
-export const InterestsContainer = styled<BiographyProps, "div">("div")`
-  padding: 10px;
+export const InterestsContainer = styled.div<BiographyProps>`
+  padding: 25px 10px 10px 0;
   width: ${({ isMobile, isTablet }) =>
     isMobile ? "100%" : isTablet ? "calc(50% - 45px)" : "calc(70% - 45px)"};
-  display: flex;
+
+  /* display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
   flex-direction: ${({ isMobile }) => (isMobile ? "column" : "row")};
@@ -48,35 +50,53 @@ export const InterestsContainer = styled<BiographyProps, "div">("div")`
 
   .image-origami {
     margin-top: ${({ isMobile, isTablet }) => (isMobile ? "10px" : isTablet ? "40px" : "0")};
-  }
+  } */
 `;
 
-export const QuoteContainer = styled<BiographyProps, "div">("div")`
-  align-self: ${({ isMobile }) => (isMobile ? "center" : "flex-end")};
+export const QuoteContainer = styled.div<BiographyProps>`
+  display: flex;
   position: relative;
-  width: ${({ isMobile, isTablet }) => (isMobile ? "90%" : isTablet ? "100%" : "24%")};
-  padding: 0 10px;
+
+  .quote-container {
+    padding: 0 5px;
+  }
 
   .quote {
+    color: #7acec3;
+    font-size: 64px;
+  }
+
+  .author {
+    text-align: right;
+  }
+
+  /* position: relative;
+  width: ${({ isMobile, isTablet }) => (isMobile ? "90%" : isTablet ? "100%" : "100%")}; */
+
+  /* align-self: ${({ isMobile }) => (isMobile ? "center" : "flex-end")};
+  width: ${({ isMobile, isTablet }) => (isMobile ? "90%" : isTablet ? "100%" : "24%")};
+  padding: 0 10px; */
+
+  /* .quote {
     color: #7acec3;
     font-size: 64px;
     position: absolute;
   }
 
   .open-quote {
-    top: -28px;
-    left: -10px;
+    top: 0;
+    left: -20px;
   }
 
   .close-quote {
+    position: absolute;
     bottom: -30px;
-    right: 0;
+    right: -20px;
   }
 
   .author {
     text-align: right;
-    margin-top: 10px;
-  }
+  } */
 `;
 
 interface Props {
@@ -90,7 +110,7 @@ export default class InterestsSection extends React.Component<Props> {
     return (
       <BiographyContainer>
         <Heading isTablet={this.props.isTablet} isMobile={this.props.isMobile}>
-          <GradientContainer
+          <SectionContainer
             width="100%"
             height="calc(400px - 60px)"
             padding="60px 0 0 0"
@@ -100,17 +120,19 @@ export default class InterestsSection extends React.Component<Props> {
             <SectionTitle bottom="60px" left="35%" isMobile={this.props.isMobile}>
               Interests
             </SectionTitle>
-          </GradientContainer>
+          </SectionContainer>
         </Heading>
 
         <InterestsContainer isTablet={this.props.isTablet} isMobile={this.props.isMobile}>
           <QuoteContainer isTablet={this.props.isTablet} isMobile={this.props.isMobile}>
-            <p className="quote open-quote">“</p>
-            <p className="quote-text">{this.props.interests.quote.text}</p>
-            <p className="quote close-quote">”</p>
-            <p className="author">{this.props.interests.quote.author}</p>
+            <span className="quote">“</span>
+            <div className="quote-container">
+              <p className="quote-text">{this.props.interests.quote.text} </p>
+              <p className="author">{this.props.interests.quote.author}</p>
+            </div>
+            <span className="quote">”</span>
           </QuoteContainer>
-          {this.renderHobbies(this.props.interests.hobbies)}
+          {/* {this.renderHobbies(this.props.interests.hobbies)} */}
         </InterestsContainer>
       </BiographyContainer>
     );

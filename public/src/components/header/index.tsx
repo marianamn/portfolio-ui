@@ -1,5 +1,6 @@
 import * as React from "react";
 import styled from "styled-components";
+
 import ImageSection from "./image-section";
 import MenuSection from "./menu-section";
 
@@ -7,7 +8,7 @@ interface NavbarContainerProps {
   readonly isMobile?: boolean;
 }
 
-export const NavbarContainer = styled<NavbarContainerProps, "div">("div")`
+export const NavbarContainer = styled.div<NavbarContainerProps>`
   height: ${({ isMobile }) => (isMobile ? "auto" : "500px")};
   display: flex;
   flex-direction: ${({ isMobile }) => isMobile && "column-reverse"};

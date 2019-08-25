@@ -1,8 +1,9 @@
 import * as React from "react";
-import styled, { css } from "styled-components";
+import styled from "styled-components";
 import { ArrowRight } from "styled-icons/feather/ArrowRight";
-import { ProjectContainerStyles, ProjectData } from "../../interfaces";
+
 import { projectContainersCss } from "../../constants";
+import { ProjectContainerStyles, ProjectData } from "../../interfaces";
 
 export interface ProjectProps {
   readonly isMobile: boolean;
@@ -11,7 +12,7 @@ export interface ProjectProps {
   readonly imagePath: string;
 }
 
-export const ProjectContainer = styled<ProjectProps, "div">("div")`
+export const ProjectContainer = styled.div<ProjectProps>`
   width: ${({ isMobile, isTablet, style }) =>
     isMobile ? "100% !important" : isTablet ? "calc(50% - 20px) !important" : `${style.width}`};
   height: ${({ isMobile, isTablet, style }) =>

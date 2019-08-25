@@ -1,4 +1,4 @@
-import styled, { css } from "styled-components";
+import styled from 'styled-components';
 
 export interface SectionTitleProps {
   readonly bottom: string;
@@ -6,22 +6,14 @@ export interface SectionTitleProps {
   readonly isMobile?: boolean;
 }
 
-export const SectionTitle = styled<SectionTitleProps, "div">("div")`
+export const SectionTitle = styled.div<SectionTitleProps>`
   position: absolute;
   bottom: ${({ bottom, isMobile }) => (isMobile ? `calc(${bottom} - 20px)` : bottom)};
   color: #ffffff;
   font-size: 3rem;
   text-transform: uppercase;
-  ${({ isMobile }) =>
-    !isMobile &&
-    css`
-      left: ${({ left }) => left};
-    `};
-  ${({ isMobile }) =>
-    isMobile &&
-    css`
-      right: 10%;
-    `};
+  left: ${({ isMobile, left }) => (!isMobile && left)};
+  right: ${({ isMobile }) => (isMobile && '10%')};
 
   @media only screen and (max-width: 1180px) {
     font-size: 2.5rem;

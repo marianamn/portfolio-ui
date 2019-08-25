@@ -1,11 +1,12 @@
 import * as React from "react";
 import styled from "styled-components";
-import { GradientContainer } from "../common/gradient-container";
-import { SectionTitle } from "../common/section-title";
-import { Biography } from "../../interfaces";
-import { Heart } from "styled-icons/fa-solid/Heart";
-import { ExternalLinkAlt } from "styled-icons/fa-solid/ExternalLinkAlt";
 import { Award } from "styled-icons/fa-solid/Award";
+import { ExternalLinkAlt } from "styled-icons/fa-solid/ExternalLinkAlt";
+import { Heart } from "styled-icons/fa-solid/Heart";
+
+import { Biography } from "../../interfaces";
+import { SectionContainer } from "../common/section-container";
+import { SectionTitle } from "../common/section-title";
 
 export interface BiographyProps {
   readonly isMobile?: boolean;
@@ -19,13 +20,13 @@ export const BiographyContainer = styled("div")`
   min-height: 400px;
 `;
 
-export const Heading = styled<BiographyProps, "div">("div")`
+export const Heading = styled.div<BiographyProps>`
   float: ${({ isMobile }) => (isMobile ? "none" : "left")};
   width: ${({ isMobile, isTablet }) => (isMobile ? "100%" : isTablet ? "50%" : "30%")};
   margin-right: ${({ isMobile, isTablet }) => (isTablet ? "10px" : isMobile ? "0" : "25px")};
 `;
 
-export const ProfessionalSection = styled<BiographyProps, "div">("div")`
+export const ProfessionalSection = styled.div<BiographyProps>`
   padding: ${({ isTablet, isMobile }) =>
     isTablet ? "5px 10px 0 10px" : isMobile ? "10px" : "25px 10px 0 10px"};
 
@@ -82,7 +83,7 @@ export const CvLink = styled("div")`
   padding: 0 10px 10px 0;
 `;
 
-export const WhoAmISection = styled<BiographyProps, "div">("div")`
+export const WhoAmISection = styled.div<BiographyProps>`
   display: ${({ isTablet }) => (isTablet ? "block" : "flex")};
   align-items: ${({ isTablet }) => !isTablet && "center"};
   flex-direction: ${({ isMobile }) => (isMobile ? "column" : "row")};
@@ -107,7 +108,7 @@ export default class BiographySection extends React.Component<Props> {
     return (
       <BiographyContainer>
         <Heading isTablet={this.props.isTablet} isMobile={this.props.isMobile}>
-          <GradientContainer
+          <SectionContainer
             width="100%"
             height="calc(400px - 60px)"
             padding="60px 0 0 0"
@@ -117,7 +118,7 @@ export default class BiographySection extends React.Component<Props> {
             <SectionTitle bottom="60px" left="35%" isMobile={this.props.isMobile}>
               Biography
             </SectionTitle>
-          </GradientContainer>
+          </SectionContainer>
         </Heading>
 
         <ProfessionalSection isTablet={this.props.isTablet} isMobile={this.props.isMobile}>

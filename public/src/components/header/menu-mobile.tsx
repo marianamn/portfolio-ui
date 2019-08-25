@@ -2,9 +2,10 @@ import * as React from "react";
 import styled from "styled-components";
 import { Menu } from "styled-icons/feather/Menu";
 import { Close } from "styled-icons/material/Close";
+
 import { name } from "../../constants";
-import MenuListContainer from "./menu-list";
 import ContactIcons from "../common/contact-icons";
+import MenuListContainer from "./menu-list";
 
 export const MenuContainer = styled("div")`
   background: #7acec3;
@@ -21,7 +22,7 @@ export interface MenuBtnProps {
   readonly isOpened: boolean;
 }
 
-export const MenuBtn = styled<MenuBtnProps, "div">("div")`
+export const MenuBtn = styled.div<MenuBtnProps>`
   width: 40px;
   border: ${({ isOpened }) => (isOpened ? "none" : "1.5px solid white")};
   display: flex;

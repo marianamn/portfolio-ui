@@ -1,22 +1,25 @@
 import * as React from "react";
-import * as ReactDOM from "react-dom";
+import * as smoothScroll from "smoothscroll-polyfill";
 import styled from "styled-components";
 import { ChevronCircleUp } from "styled-icons/fa-solid/ChevronCircleUp";
+
 import {
-  mobileResolution,
-  tabletResolution,
-  projects,
   biography,
   interests,
+  mobileResolution,
+  projects,
+  tabletResolution,
 } from "../../constants";
-import Loading from "../common/loadings";
-import HeaderSection from "../header/index";
-import PortfolioSection from "../portfolio/index";
-import BiographySection from "../biography/index";
-import InterestsSection from "../interests/index";
-import Footer from "../footer/";
-import ProjectDetails from "../portfolio/project-details";
 import { ProjectData } from "../../interfaces";
+import BiographySection from "../biography";
+import Loading from "../common/loadings";
+import Footer from "../footer/";
+import HeaderSection from "../header";
+import InterestsSection from "../interests";
+import PortfolioSection from "../portfolio";
+import ProjectDetails from "../portfolio/project-details";
+
+smoothScroll.polyfill();
 
 export const MainLayout = styled("div")`
   position: relative;
@@ -36,7 +39,14 @@ export const ScrollToTop = styled("div")`
   }
 `;
 
-interface Props { }
+interface DetailsProps {
+  readonly isProjectLoading: boolean;
+}
+
+export const Details = styled.div<DetailsProps>`
+  height: ${({ isProjectLoading }) => isProjectLoading && "400px"};
+  overflow-y: ${({ isProjectLoading }) => isProjectLoading && "hidden"};
+`;
 
 interface State {
   readonly isLoading: boolean;
@@ -46,24 +56,25 @@ interface State {
   readonly projectDetails: ProjectData;
 }
 
-export default class Layout extends React.Component<Props, State> {
-  private projectsRef: any;
-  private projectsDetailsRef: any
-  private biographyRef: any
-  private interestsRef: any;
-  private topRef: any;
+export default class Layout extends React.Component<{}, State> {
+  private readonly projectsRef: any;
+  private readonly projectsDetailsRef: any;
+  private readonly biographyRef: any;
+  private readonly interestsRef: any;
+  private readonly topRef: any;
 
   // tslint:disable-next-line:member-ordering
-  constructor(props: Props, state: State) {
+  constructor(props: {}, state: State) {
     super(props, state);
     this.topRef = React.createRef();
     this.projectsRef = React.createRef();
     this.projectsDetailsRef = React.createRef();
     this.biographyRef = React.createRef();
     this.interestsRef = React.createRef();
+
     this.state = {
       isLoading: true,
-      isProjectLoading: false,
+      isProjectLoading: true,
       containerWidth: 0,
       showProjectDetails: false,
       projectDetails: {
@@ -89,17 +100,6 @@ export default class Layout extends React.Component<Props, State> {
     window.removeEventListener("resize", this.updateWindowDimensions);
   }
 
-  isImageLoaded = (loaded: boolean) => {
-    this.setState({ isLoading: loaded });
-  };
-
-  handleScrollToElement = (ref: any) => {
-    window.scrollTo({
-      top: ref.current.offsetTop,
-      behavior: "smooth",
-    });
-  }
-
   render(): JSX.Element {
     const isMobile = this.state.containerWidth <= mobileResolution;
     const isTablet =
@@ -109,13 +109,15 @@ export default class Layout extends React.Component<Props, State> {
       <MainLayout>
         {this.state.isLoading && <Loading position="fixed" height="100vh" />}
 
-        <HeaderSection
-          isMobile={isMobile}
-          scrollToElement={this.scrollToElement}
-          isImageLoaded={this.isImageLoaded}
-          ref={this.topRef}
-        />
+        <div ref={this.topRef}>
+          <HeaderSection
+            isMobile={isMobile}
+            scrollToElement={this.scrollToElement}
+            isImageLoaded={this.isImageLoaded}
+          />
+        </div>
 
+        {/* On Project details click hide Project section and show Project details */}
         {!this.state.showProjectDetails ? (
           <div ref={this.projectsRef}>
             <PortfolioSection
@@ -126,31 +128,28 @@ export default class Layout extends React.Component<Props, State> {
               getProjectDetails={this.getProjectDetails}
             />
           </div>
-        ) : this.state.isProjectLoading ? (
-          <Loading position="relative" height="400px" />
         ) : (
-              <div ref={this.projectsDetailsRef}>
-                <ProjectDetails
-                  isMobile={isMobile}
-                  isTablet={isTablet}
-                  toggleShowProjectDetails={this.toggleShowProjectDetails}
-                  projectDetails={this.state.projectDetails}
-                />
-              </div>
-            )}
+          <div ref={this.projectsDetailsRef}>
+            {this.state.isProjectLoading && <Loading position="absolute" height="400px" />}
+
+            <Details isProjectLoading={this.state.isProjectLoading}>
+              <ProjectDetails
+                isMobile={isMobile}
+                isTablet={isTablet}
+                toggleShowProjectDetails={this.toggleShowProjectDetails}
+                projectDetails={this.state.projectDetails}
+                areImagesLoaded={this.areImagesLoaded}
+              />
+            </Details>
+          </div>
+        )}
+
         <div ref={this.biographyRef}>
-          <BiographySection
-            isMobile={isMobile}
-            isTablet={isTablet}
-            biography={biography}
-          />
+          <BiographySection isMobile={isMobile} isTablet={isTablet} biography={biography} />
         </div>
+
         <div ref={this.interestsRef}>
-          <InterestsSection
-            isMobile={isMobile}
-            isTablet={isTablet}
-            interests={interests}
-          />
+          <InterestsSection isMobile={isMobile} isTablet={isTablet} interests={interests} />
         </div>
 
         <Footer />
@@ -175,12 +174,28 @@ export default class Layout extends React.Component<Props, State> {
     });
   };
 
+  // Is personal image loaded - show spinner meanwhile
+  private readonly isImageLoaded = (loaded: boolean) => {
+    this.setState({ isLoading: loaded });
+  };
+
+  // When open product details checks if all images are loaded - show spinner meanwhile
+  private readonly areImagesLoaded = (imagesLoaded: boolean): void => {
+    this.setState({ isProjectLoading: !imagesLoaded });
+  };
+
   private readonly getProjectDetails = (id: string): void => {
-    this.setState({ isProjectLoading: true });
     const project = projects.filter((p: ProjectData) => p.id === id)[0];
     this.setState({
       projectDetails: project,
-      isProjectLoading: false,
+    });
+  };
+
+  // Handle scroll to element logic
+  private readonly handleScrollToElement = (ref: any) => {
+    window.scrollTo({
+      top: ref.current.offsetTop,
+      behavior: "smooth",
     });
   };
 

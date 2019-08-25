@@ -2,15 +2,16 @@ import * as React from "react";
 import styled, { css } from "styled-components";
 import { Menu } from "styled-icons/feather/Menu";
 import { Close } from "styled-icons/material/Close";
-import { GradientContainer } from "../common/gradient-container";
-import MobileMenu from "./menu-mobile";
+
+import { SectionContainer } from "../common/section-container";
 import MenuListContainer from "./menu-list";
+import MobileMenu from "./menu-mobile";
 
 export interface MenuProps {
   readonly isOpened?: boolean;
 }
 
-export const MenuContainer = styled<MenuProps, "div">("div")`
+export const MenuContainer = styled.div<MenuProps>`
   position: absolute;
   right: ${({ isOpened }) => !isOpened && "39%"};
   min-width: 60px;
@@ -82,7 +83,7 @@ export default class MenuSection extends React.Component<Props> {
       );
     } else {
       return (
-        <GradientContainer
+        <SectionContainer
           width="30%"
           height="calc(100% - 60px)"
           padding="60px 0 0 0"
@@ -107,7 +108,7 @@ export default class MenuSection extends React.Component<Props> {
               </div>
             )}
           </MenuContainer>
-        </GradientContainer>
+        </SectionContainer>
       );
     }
   }
