@@ -38,10 +38,8 @@ export default class MenuListContainer extends React.Component<Props> {
   private readonly generateMenuContent = () => {
     return menuItems.map((item: string) => {
       return (
-        // tslint:disable-next-line:jsx-no-lambda
         <MenuItem
           key={item}
-          // tslint:disable-next-line:jsx-no-lambda
           onClick={() => {
             this.props.scrollToElement(`${item.toLowerCase()}`);
             this.props.toggleMenu();

@@ -147,7 +147,6 @@ export default class Layout extends React.Component<{}, State> {
 
         <Footer />
 
-        {/* tslint:disable-next-line:jsx-no-lambda */}
         <ScrollToTop onClick={() => this.scrollToElement("top")}>
           <ChevronCircleUp />
         </ScrollToTop>

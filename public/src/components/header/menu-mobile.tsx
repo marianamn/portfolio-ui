@@ -67,7 +67,6 @@ export default class MobileMenu extends React.Component<Props> {
     return (
       <MenuContainer>
         <MenuBarsContainer>
-          {/* tslint:disable-next-line:jsx-no-lambda */}
           <MenuBtn onClick={() => this.props.toggleMenu()} isOpened={this.props.isToggled}>
             {!this.props.isToggled ? <Menu className="icon" /> : <Close className="icon" />}
           </MenuBtn>

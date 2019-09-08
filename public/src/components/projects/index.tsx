@@ -1,11 +1,11 @@
-import { SectionContainer } from "@portfolio-lib/section-container";
-import { SectionTitle } from "@portfolio-lib/section-title";
-import { ProjectData } from "@portfolio-models/project";
-import * as React from "react";
-import styled from "styled-components";
-import { ArrowRight } from "styled-icons/feather/ArrowRight";
+import { SectionContainer } from '@portfolio-lib/section-container';
+import { SectionTitle } from '@portfolio-lib/section-title';
+import { ProjectData } from '@portfolio-models/project';
+import * as React from 'react';
+import styled from 'styled-components';
+import { ArrowRight } from 'styled-icons/feather/ArrowRight';
 
-import Project from "./project";
+import Project from './project';
 
 export const PortfolioContainer = styled("div")`
   height: 100%;
@@ -105,7 +105,6 @@ export default class PortfolioSection extends React.Component<Props, StateProps>
         <ListItem
           className={index === this.state.selectedItem ? "active" : ""}
           key={item}
-          // tslint:disable-next-line:jsx-no-lambda
           onClick={() => this.handleClick(this.props.projects[index - 1].id, index)}
         >
           {index === this.state.selectedItem && <ArrowRight className="icon" />}

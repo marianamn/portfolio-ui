@@ -1,6 +1,6 @@
-import * as React from "react";
-import styled from "styled-components";
-import { Carousel } from "react-responsive-carousel";
+import * as React from 'react';
+import { Carousel } from 'react-responsive-carousel';
+import styled from 'styled-components';
 
 export const CarouselContainer = styled("div")`
   .carousel .thumb.selected,
@@ -62,9 +62,7 @@ export default class ImageCarousel extends React.Component<Props, {}> {
         <div key={image}>
           <img
             src={image}
-            // tslint:disable-next-line:jsx-no-lambda
             onLoad={() => this.loadImage(image)}
-            // tslint:disable-next-line:jsx-no-lambda
             onError={() => this.loadImage(image)}
           />
         </div>

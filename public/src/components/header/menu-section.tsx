@@ -91,14 +91,12 @@ export default class MenuSection extends React.Component<Props> {
         >
           <MenuContainer isOpened={this.props.isToggled}>
             {!this.props.isToggled && (
-              // tslint:disable-next-line:jsx-no-lambda
               <MenuBarsContainer onClick={() => this.props.toggleMenu()}>
                 <Menu className="icon" />
               </MenuBarsContainer>
             )}
             {this.props.isToggled && (
               <div>
-                {/* tslint:disable-next-line:jsx-no-lambda */}
                 <Close className="icon" onClick={() => this.props.toggleMenu()} />
                 <MenuListContainer
                   isMobile={this.props.isMobile}

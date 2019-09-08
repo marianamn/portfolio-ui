@@ -1,10 +1,10 @@
-import { ProjectData } from "@portfolio-models/project";
-import * as React from "react";
-import styled from "styled-components";
-import { Close } from "styled-icons/material/Close";
+import { ProjectData } from '@portfolio-models/project';
+import * as React from 'react';
+import styled from 'styled-components';
+import { Close } from 'styled-icons/material/Close';
 
-import ImageCarousel from "./carousel";
-import Tags from "./tags";
+import ImageCarousel from './carousel';
+import Tags from './tags';
 
 export interface ContentProps {
   readonly isMobile?: boolean;
@@ -113,7 +113,6 @@ export default class ProjectDetails extends React.Component<Props, StateProps> {
         </CarouselContainer>
 
         <CloseBtnContainer
-          // tslint:disable-next-line:jsx-no-lambda
           onClick={() => this.props.toggleShowProjectDetails()}
           isMobile={this.props.isMobile}
         >

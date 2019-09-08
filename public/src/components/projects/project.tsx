@@ -1,9 +1,9 @@
-import { projectContainersCss } from "@portfolio-constants/constants";
-import { ProjectData } from "@portfolio-models/project";
-import { ProjectContainerStyles } from "@portfolio-models/project-container";
-import * as React from "react";
-import styled from "styled-components";
-import { ArrowRight } from "styled-icons/feather/ArrowRight";
+import { projectContainersCss } from '@portfolio-constants/constants';
+import { ProjectData } from '@portfolio-models/project';
+import { ProjectContainerStyles } from '@portfolio-models/project-container';
+import * as React from 'react';
+import styled from 'styled-components';
+import { ArrowRight } from 'styled-icons/feather/ArrowRight';
 
 export interface ProjectProps {
   readonly isMobile: boolean;
@@ -108,7 +108,6 @@ export default class Project extends React.Component<Props, StateProps> {
         </DescriptionContainer>
         <div className="image" />
 
-        {/* tslint:disable-next-line:jsx-no-lambda */}
         <VewProject onClick={() => this.handleClick(this.props.project.id)}>
           <ArrowRight className="icon" />
           <span>Vew Details</span>
