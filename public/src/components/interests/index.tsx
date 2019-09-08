@@ -1,9 +1,8 @@
-import * as React from "react";
-import styled from "styled-components";
-
-import { Hobby, Interests } from "../../interfaces";
-import { SectionContainer } from "../common/section-container";
-import { SectionTitle } from "../common/section-title";
+import { SectionContainer } from '@portfolio-lib/section-container';
+import { SectionTitle } from '@portfolio-lib/section-title';
+import { Hobby, Interests } from '@portfolio-models/interests';
+import * as React from 'react';
+import styled from 'styled-components';
 
 export interface BiographyProps {
   readonly isMobile?: boolean;

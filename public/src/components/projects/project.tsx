@@ -1,9 +1,9 @@
+import { projectContainersCss } from "@portfolio-constants/constants";
+import { ProjectData } from "@portfolio-models/project";
+import { ProjectContainerStyles } from "@portfolio-models/project-container";
 import * as React from "react";
 import styled from "styled-components";
 import { ArrowRight } from "styled-icons/feather/ArrowRight";
-
-import { projectContainersCss } from "../../constants";
-import { ProjectContainerStyles, ProjectData } from "../../interfaces";
 
 export interface ProjectProps {
   readonly isMobile: boolean;

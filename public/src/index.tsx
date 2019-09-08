@@ -1,6 +1,6 @@
-import * as React from "react";
-import * as ReactDom from "react-dom";
-import App from "./components/app/index";
+import App from '@portfolio/app';
+import * as React from 'react';
+import * as ReactDom from 'react-dom';
 
 const root = document.querySelector("#container");
 

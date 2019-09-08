@@ -1,7 +1,6 @@
-import * as React from "react";
-
-import { GlobalStyles } from "../../styles/globals";
-import Layout from "../layout";
+import { GlobalStyles } from '@portfolio-styles/globals';
+import Layout from '@portfolio/layout';
+import * as React from 'react';
 
 export default class App extends React.Component<{}, {}> {
   render(): JSX.Element {

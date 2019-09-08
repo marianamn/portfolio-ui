@@ -21,13 +21,20 @@ module.exports = {
     },
     plugins: [
       new HtmlWebpackPlugin({
-          template: "./public/index.html"
+        template: "./public/index.html"
       }),
       new CopyWebpackPlugin([
         { from: 'public/assets', to: 'assets' }
       ])
     ],
     resolve: {
+      alias: {
+        "@portfolio": path.resolve(__dirname, './public/src/components/'),
+        "@portfolio-lib": path.resolve(__dirname, './public/src/common/'),
+        "@portfolio-styles": path.resolve(__dirname, './public/src/styles/'),
+        "@portfolio-constants": path.resolve(__dirname, './public/src/constants/'),
+        "@portfolio-models": path.resolve(__dirname, './public/src/models/'),
+      },
       extensions: ['.js', '.ts', '.tsx']
     }
 }

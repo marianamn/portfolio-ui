@@ -1,8 +1,8 @@
+import { ProjectData } from "@portfolio-models/project";
 import * as React from "react";
 import styled from "styled-components";
 import { Close } from "styled-icons/material/Close";
 
-import { ProjectData } from "../../interfaces";
 import ImageCarousel from "./carousel";
 import Tags from "./tags";
 

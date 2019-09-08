@@ -1,3 +1,4 @@
+import { colors } from '@portfolio-styles/colors';
 import styled from 'styled-components';
 
 export interface SectionTitleProps {
@@ -9,11 +10,11 @@ export interface SectionTitleProps {
 export const SectionTitle = styled.div<SectionTitleProps>`
   position: absolute;
   bottom: ${({ bottom, isMobile }) => (isMobile ? `calc(${bottom} - 20px)` : bottom)};
-  color: #ffffff;
+  color: ${colors.light};
   font-size: 3rem;
   text-transform: uppercase;
-  left: ${({ isMobile, left }) => (!isMobile && left)};
-  right: ${({ isMobile }) => (isMobile && '10%')};
+  left: ${({ isMobile, left }) => !isMobile && left};
+  right: ${({ isMobile }) => isMobile && "10%"};
 
   @media only screen and (max-width: 1180px) {
     font-size: 2.5rem;

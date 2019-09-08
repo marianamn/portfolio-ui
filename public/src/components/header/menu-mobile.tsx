@@ -1,11 +1,11 @@
-import * as React from "react";
-import styled from "styled-components";
-import { Menu } from "styled-icons/feather/Menu";
-import { Close } from "styled-icons/material/Close";
+import { name } from '@portfolio-constants/constants';
+import ContactIcons from '@portfolio-lib/contact-icons';
+import * as React from 'react';
+import styled from 'styled-components';
+import { Menu } from 'styled-icons/feather/Menu';
+import { Close } from 'styled-icons/material/Close';
 
-import { name } from "../../constants";
-import ContactIcons from "../common/contact-icons";
-import MenuListContainer from "./menu-list";
+import MenuListContainer from './menu-list';
 
 export const MenuContainer = styled("div")`
   background: #7acec3;

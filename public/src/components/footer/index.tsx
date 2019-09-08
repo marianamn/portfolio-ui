@@ -1,7 +1,7 @@
-import * as React from "react";
-import styled from "styled-components";
-import { name } from "../../constants";
-import ContactIcons from "../common/contact-icons";
+import { name } from '@portfolio-constants/constants';
+import ContactIcons from '@portfolio-lib/contact-icons';
+import * as React from 'react';
+import styled from 'styled-components';
 
 export const FooterContainer = styled("div")`
   padding: 20px;

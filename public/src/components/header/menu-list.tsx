@@ -1,7 +1,6 @@
-import * as React from "react";
-import styled from "styled-components";
-
-import { menuItems } from "../../constants";
+import { menuItems } from '@portfolio-constants/constants';
+import * as React from 'react';
+import styled from 'styled-components';
 
 export interface MenuListProps {
   readonly isMobile: boolean;

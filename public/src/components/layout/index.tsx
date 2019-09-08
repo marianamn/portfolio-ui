@@ -1,23 +1,16 @@
-import * as React from "react";
-import * as smoothScroll from "smoothscroll-polyfill";
-import styled from "styled-components";
-import { ChevronCircleUp } from "styled-icons/fa-solid/ChevronCircleUp";
-
-import {
-  biography,
-  interests,
-  mobileResolution,
-  projects,
-  tabletResolution,
-} from "../../constants";
-import { ProjectData } from "../../interfaces";
-import BiographySection from "../biography";
-import Loading from "../common/loadings";
-import Footer from "../footer/";
-import HeaderSection from "../header";
-import InterestsSection from "../interests";
-import PortfolioSection from "../portfolio";
-import ProjectDetails from "../portfolio/project-details";
+import { biography, interests, mobileResolution, projects, tabletResolution } from '@portfolio-constants/constants';
+import Loading from '@portfolio-lib/loadings';
+import { ProjectData } from '@portfolio-models/project';
+import BiographySection from '@portfolio/biography';
+import Footer from '@portfolio/footer/';
+import HeaderSection from '@portfolio/header';
+import InterestsSection from '@portfolio/interests';
+import PortfolioSection from '@portfolio/projects';
+import ProjectDetails from '@portfolio/projects/project-details';
+import * as React from 'react';
+import * as smoothScroll from 'smoothscroll-polyfill';
+import styled from 'styled-components';
+import { ChevronCircleUp } from 'styled-icons/fa-solid/ChevronCircleUp';
 
 smoothScroll.polyfill();
 
@@ -78,14 +71,14 @@ export default class Layout extends React.Component<{}, State> {
       containerWidth: 0,
       showProjectDetails: false,
       projectDetails: {
-        id: "",
-        name: "",
-        technologies: "",
-        description: "",
+        id: '',
+        name: '',
+        technologies: '',
+        description: '',
         tags: [],
         images: [],
-        period: "",
-        url: "",
+        period: '',
+        url: '',
         repositoryUrl: [],
       },
     };
@@ -93,11 +86,11 @@ export default class Layout extends React.Component<{}, State> {
 
   componentDidMount(): void {
     this.updateWindowDimensions();
-    window.addEventListener("resize", this.updateWindowDimensions);
+    window.addEventListener('resize', this.updateWindowDimensions);
   }
 
   componentWillUnmount(): void {
-    window.removeEventListener("resize", this.updateWindowDimensions);
+    window.removeEventListener('resize', this.updateWindowDimensions);
   }
 
   render(): JSX.Element {
@@ -169,7 +162,7 @@ export default class Layout extends React.Component<{}, State> {
   private readonly toggleShowProjectDetails = (): void => {
     this.setState({ showProjectDetails: !this.state.showProjectDetails }, () => {
       if (this.state.showProjectDetails) {
-        this.scrollToElement("project-details");
+        this.scrollToElement('project-details');
       }
     });
   };
@@ -195,24 +188,24 @@ export default class Layout extends React.Component<{}, State> {
   private readonly handleScrollToElement = (ref: any) => {
     window.scrollTo({
       top: ref.current.offsetTop,
-      behavior: "smooth",
+      behavior: 'smooth',
     });
   };
 
   private readonly scrollToElement = (id: string): void => {
     switch (id) {
-      case "projects":
+      case 'projects':
         break;
-      case "project-details":
+      case 'project-details':
         this.handleScrollToElement(this.projectsDetailsRef);
         break;
-      case "biography":
+      case 'biography':
         this.handleScrollToElement(this.biographyRef);
         break;
-      case "interests":
+      case 'interests':
         this.handleScrollToElement(this.interestsRef);
         break;
-      case "top":
+      case 'top':
         this.handleScrollToElement(this.topRef);
         break;
       default:

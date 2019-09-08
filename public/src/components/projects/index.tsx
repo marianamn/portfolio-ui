@@ -1,11 +1,11 @@
-import * as React from 'react';
-import styled from 'styled-components';
-import { ArrowRight } from 'styled-icons/feather/ArrowRight';
+import { SectionContainer } from "@portfolio-lib/section-container";
+import { SectionTitle } from "@portfolio-lib/section-title";
+import { ProjectData } from "@portfolio-models/project";
+import * as React from "react";
+import styled from "styled-components";
+import { ArrowRight } from "styled-icons/feather/ArrowRight";
 
-import { ProjectData } from '../../interfaces';
-import { SectionContainer } from '../common/section-container';
-import { SectionTitle } from '../common/section-title';
-import Project from './project';
+import Project from "./project";
 
 export const PortfolioContainer = styled("div")`
   height: 100%;

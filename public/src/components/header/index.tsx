@@ -1,8 +1,8 @@
-import * as React from "react";
-import styled from "styled-components";
+import * as React from 'react';
+import styled from 'styled-components';
 
-import ImageSection from "./image-section";
-import MenuSection from "./menu-section";
+import ImageSection from './image-section';
+import MenuSection from './menu-section';
 
 interface NavbarContainerProps {
   readonly isMobile?: boolean;

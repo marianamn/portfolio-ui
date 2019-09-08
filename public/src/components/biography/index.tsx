@@ -1,12 +1,11 @@
-import * as React from "react";
-import styled from "styled-components";
-import { Award } from "styled-icons/fa-solid/Award";
-import { ExternalLinkAlt } from "styled-icons/fa-solid/ExternalLinkAlt";
-import { Heart } from "styled-icons/fa-solid/Heart";
-
-import { Biography } from "../../interfaces";
-import { SectionContainer } from "../common/section-container";
-import { SectionTitle } from "../common/section-title";
+import { SectionContainer } from '@portfolio-lib/section-container';
+import { SectionTitle } from '@portfolio-lib/section-title';
+import { Biography } from '@portfolio-models/biography';
+import * as React from 'react';
+import styled from 'styled-components';
+import { Award } from 'styled-icons/fa-solid/Award';
+import { ExternalLinkAlt } from 'styled-icons/fa-solid/ExternalLinkAlt';
+import { Heart } from 'styled-icons/fa-solid/Heart';
 
 export interface BiographyProps {
   readonly isMobile?: boolean;

@@ -9,7 +9,15 @@
     "removeComments": true,
     "sourceMap": true,
     "target": "es6",
-    "types": []
+    "types": [],
+    "baseUrl": "./public/src/",
+    "paths": {
+      "@portfolio/*": [ "components/*" ],
+      "@portfolio-lib/*": [ "common/*" ],
+      "@portfolio-styles/*": [ "styles/*" ],
+      "@portfolio-constants/*": [ "constants/*" ],
+      "@portfolio-models/*": [ "models/*" ],
+    }
   },
   "include": [
     "./public/src/**/*"

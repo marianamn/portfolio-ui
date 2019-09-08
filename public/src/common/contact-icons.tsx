@@ -1,11 +1,10 @@
-import * as React from "react";
-import styled from "styled-components";
-import { FacebookF } from "styled-icons/fa-brands/FacebookF";
-import { LinkedinIn } from "styled-icons/fa-brands/LinkedinIn";
-import { Twitter } from "styled-icons/fa-brands/Twitter";
-import { Email } from "styled-icons/material/Email";
-
-import { email, socialMediaLinks } from "../../constants";
+import { email, socialMediaLinks } from '@portfolio-constants/constants';
+import * as React from 'react';
+import styled from 'styled-components';
+import { FacebookF } from 'styled-icons/fa-brands/FacebookF';
+import { LinkedinIn } from 'styled-icons/fa-brands/LinkedinIn';
+import { Twitter } from 'styled-icons/fa-brands/Twitter';
+import { Email } from 'styled-icons/material/Email';
 
 export const SocialIconsContainer = styled("div")`
   display: flex;

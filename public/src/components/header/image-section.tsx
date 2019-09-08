@@ -1,8 +1,7 @@
-import * as React from "react";
-import styled from "styled-components";
-
-import { name, personalImage } from "../../constants";
-import ContactIcons from "../common/contact-icons";
+import { name, personalImage } from '@portfolio-constants/constants';
+import ContactIcons from '@portfolio-lib/contact-icons';
+import * as React from 'react';
+import styled from 'styled-components';
 
 interface ImageContainerProps {
   readonly isMobile?: boolean;

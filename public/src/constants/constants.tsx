@@ -1,4 +1,7 @@
-import { ProjectContainerStyles, ProjectData, Biography, Interests } from "./interfaces";
+import { Biography } from '@portfolio-models/biography';
+import { Interests } from '@portfolio-models/interests';
+import { ProjectData } from '@portfolio-models/project';
+import { ProjectContainerStyles } from '@portfolio-models/project-container';
 
 // Device resolutions
 export const mobileResolution = 480;

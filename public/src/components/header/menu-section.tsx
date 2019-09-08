@@ -1,11 +1,11 @@
-import * as React from "react";
-import styled, { css } from "styled-components";
-import { Menu } from "styled-icons/feather/Menu";
-import { Close } from "styled-icons/material/Close";
+import { SectionContainer } from '@portfolio-lib/section-container';
+import * as React from 'react';
+import styled, { css } from 'styled-components';
+import { Menu } from 'styled-icons/feather/Menu';
+import { Close } from 'styled-icons/material/Close';
 
-import { SectionContainer } from "../common/section-container";
-import MenuListContainer from "./menu-list";
-import MobileMenu from "./menu-mobile";
+import MenuListContainer from './menu-list';
+import MobileMenu from './menu-mobile';
 
 export interface MenuProps {
   readonly isOpened?: boolean;
